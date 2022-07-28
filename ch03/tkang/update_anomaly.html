@@ -1,0 +1,2514 @@
+<!DOCTYPE html>
+<!-- saved from url=(0038)https://developer-talk.tistory.com/256 -->
+<html lang="ko" style="height: 100%;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="./update_anomaly_files/lightbox.min.css"><link rel="stylesheet" type="text/css" href="./update_anomaly_files/font.css"><link rel="stylesheet" type="text/css" href="./update_anomaly_files/content.css"><!--[if lt IE 9]><script src="https://t1.daumcdn.net/tistory_admin/lib/jquery/jquery-1.12.4.min.js"></script><![endif]--><!--[if gte IE 9]>
+<!--><script src="./update_anomaly_files/f(6).txt"></script><script src="./update_anomaly_files/f(7).txt"></script><script src="./update_anomaly_files/f(8).txt" id="google_shimpl"></script><script src="./update_anomaly_files/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script><!--<![endif]-->
+<script src="./update_anomaly_files/lightbox-plus-jquery.min.js"></script>
+<script>
+lightbox.options.fadeDuration = 200;
+lightbox.options.resizeDuration = 200;
+lightbox.options.wrapAround = false;
+lightbox.options.albumLabel = "%1 / %2";
+</script>
+<script>var tjQuery = jQuery.noConflict(true);</script><style>.tt_article_useless_p_margin p {padding-top:0 !important;padding-bottom:0 !important;margin-top:0 !important;margin-bottom:0 !important;}</style><meta name="referrer" content="always"><link rel="icon" href="https://t1.daumcdn.net/tistory_admin/static/top/favicon_0630.ico"><link rel="apple-touch-icon" href="https://img1.daumcdn.net/thumb/C180x180/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F241F093D5701E73803">
+<link rel="apple-touch-icon" sizes="76x76" href="https://img1.daumcdn.net/thumb/C76x76/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F241F093D5701E73803">
+<link rel="apple-touch-icon" sizes="120x120" href="https://img1.daumcdn.net/thumb/C120x120/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F241F093D5701E73803">
+<link rel="apple-touch-icon" sizes="152x152" href="https://img1.daumcdn.net/thumb/C152x152/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F241F093D5701E73803">
+<meta name="google-adsense-platform-account" content="ca-host-pub-9691043933427338">
+<meta name="google-adsense-platform-domain" content="tistory.com">
+<meta name="description" content="이상 현상(Anomaly)이란? 데이터베이스에서 정규화를 수행하지 않으면, 데이터의 중복이 발생하고 전체적인 무결성이 저하됩니다. 이러한 원인은 데이터 이상 현상(Anomaly)에 의해 발생하며, 이상 현상으로 인해..">
+
+<!-- BEGIN OPENGRAPH -->
+<link rel="canonical" href="https://developer-talk.tistory.com/256"><meta property="og:type" content="article"><meta property="og:url" content="https://developer-talk.tistory.com/256"><meta property="og:article:author" content="Dev Story"><meta property="og:site_name" content="평범한 직장인의 공부 정리"><meta property="og:title" content="[데이터베이스]이상 현상(Anomaly)"><meta name="by" content="Dev Story"><meta property="og:description" content="이상 현상(Anomaly)이란? 데이터베이스에서 정규화를 수행하지 않으면, 데이터의 중복이 발생하고 전체적인 무결성이 저하됩니다. 이러한 원인은 데이터 이상 현상(Anomaly)에 의해 발생하며, 이상 현상으로 인해.."><meta property="og:image" content="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcpMjgF%2FbtrmoqwcdRP%2F3KxplydxU6AQDVaUzyQaSk%2Fimg.png"><meta property="article:section" content="IT 인터넷">
+<!-- END OPENGRAPH -->
+
+
+
+<!-- BEGIN TWITTERCARD -->
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@TISTORY"><meta name="twitter:title" content="[데이터베이스]이상 현상(Anomaly)"><meta name="twitter:description" content="이상 현상(Anomaly)이란? 데이터베이스에서 정규화를 수행하지 않으면, 데이터의 중복이 발생하고 전체적인 무결성이 저하됩니다. 이러한 원인은 데이터 이상 현상(Anomaly)에 의해 발생하며, 이상 현상으로 인해.."><meta property="twitter:image" content="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcpMjgF%2FbtrmoqwcdRP%2F3KxplydxU6AQDVaUzyQaSk%2Fimg.png">
+<!-- END TWITTERCARD -->
+
+
+
+<!-- BEGIN DAUMAPP -->
+<meta property="dg:plink" content="https://developer-talk.tistory.com/256"><meta name="plink" content="https://developer-talk.tistory.com/256"><meta name="title" content="[데이터베이스]이상 현상(Anomaly)"><meta name="article:media_name" content="평범한 직장인의 공부 정리"><meta property="article:mobile_url" content="https://developer-talk.tistory.com/m/256"><meta property="article:pc_url" content="https://developer-talk.tistory.com/256"><meta property="article:mobile_view_url" content="https://developer-talk.tistory.com/m/256"><meta property="article:pc_view_url" content="https://developer-talk.tistory.com/256"><meta property="article:talk_channel_view_url" content="https://developer-talk.tistory.com/m/256"><meta property="article:pc_service_home" content="https://www.tistory.com"><meta property="article:mobile_service_home" content="https://www.tistory.com/m"><meta property="article:txid" content="3889736_256"><meta property="article:published_time" content="2021-11-28T17:33:19+09:00"><meta property="og:regDate" content="20211128173319"><meta property="article:modified_time" content="2022-01-03T15:27:39+09:00">
+<!-- END DAUMAPP -->
+
+
+
+<!-- BEGIN STRUCTURED_DATA -->
+<script>{"@context":"http:\/\/schema.org","@type":"BlogPosting","mainEntityOfPage":{"@id":"https:\/\/developer-talk.tistory.com\/256"},"url":"https:\/\/developer-talk.tistory.com\/256","headline":"[\ub370\uc774\ud130\ubca0\uc774\uc2a4]\uc774\uc0c1 \ud604\uc0c1(Anomaly)","description":"\uc774\uc0c1 \ud604\uc0c1(Anomaly)\uc774\ub780? \ub370\uc774\ud130\ubca0\uc774\uc2a4\uc5d0\uc11c \uc815\uaddc\ud654\ub97c \uc218\ud589\ud558\uc9c0 \uc54a\uc73c\uba74, \ub370\uc774\ud130\uc758 \uc911\ubcf5\uc774 \ubc1c\uc0dd\ud558\uace0 \uc804\uccb4\uc801\uc778 \ubb34\uacb0\uc131\uc774 \uc800\ud558\ub429\ub2c8\ub2e4. \uc774\ub7ec\ud55c \uc6d0\uc778\uc740 \ub370\uc774\ud130 \uc774\uc0c1 \ud604\uc0c1(Anomaly)\uc5d0 \uc758\ud574 \ubc1c\uc0dd\ud558\uba70, \uc774\uc0c1 \ud604\uc0c1\uc73c\ub85c \uc778\ud574..","author":{"@type":"Person","name":"Dev Story"},"image":{"@type":"ImageObject","url":"https:\/\/img1.daumcdn.net\/thumb\/R800x0\/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcpMjgF%2FbtrmoqwcdRP%2F3KxplydxU6AQDVaUzyQaSk%2Fimg.png","width":"800px","height":"800px"},"datePublished":"20211128T17:33:19+09:00","dateModified":"20220103T15:27:39+09:00","publisher":{"@type":"Organization","name":"TISTORY","logo":{"@type":"ImageObject","url":"https:\/\/t1.daumcdn.net\/tistory_admin\/static\/images\/openGraph\/opengraph.png","width":"800px","height":"800px"}}}</script><meta name="robots" content="max-image-preview:large">
+<!-- END STRUCTURED_DATA -->
+
+        <script data-ad-host="ca-host-pub-9691043933427338" data-ad-client="ca-pub-6235017393305409" async="" src="./update_anomaly_files/f(9).txt" data-checked-head="true"></script>
+		
+		<meta name="viewport" content="initial-scale=1.0, width=device-width">
+		<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+		<title>[데이터베이스]이상 현상(Anomaly)</title>
+		<!-- <link rel="preconnect" href="https://fonts.googleapis.com"> -->
+		<link rel="stylesheet" href="./update_anomaly_files/css2(1)" as="font" crossorigin="anonymous">
+		<link rel="stylesheet" href="./update_anomaly_files/css2(2)" as="font" crossorigin="anonymous">
+		<link rel="preload" href="./update_anomaly_files/style.css" as="style">
+		<link rel="stylesheet" href="./update_anomaly_files/style.css">
+		<link rel="stylesheet" href="./update_anomaly_files/custom.css">
+		<style>
+			
+
+			/* font family */
+			html, button, textarea, input,
+			.container_postbtn .postbtn_like .wrap_btn .btn_post .uoc-icon .txt_like,
+			#tistoryEtcLayer .bundle_post .btn_mark, #tt-body-page div[data-ke-type='moreLess'] .btn-toggle-moreless,
+			.container_postbtn button em {
+				font-family: "Noto Sans DemiLight",AppleSDGothicNeo,"Malgun Gothic","맑은 고딕","돋움",dotum,sans-serif,'Font_Awesome_5_Free' !important;
+			}
+			figure[data-ke-type='opengraph'] div.og-text p.og-title,
+			#tt-body-page figure[data-ke-type='opengraph'] div.og-text p.og-title {
+				font-family: "Noto Sans DemiLight",AppleSDGothicNeo,"Malgun Gothic","맑은 고딕","돋움",dotum,sans-serif,'Font_Awesome_5_Free' !important;
+				font-size: 22px !important;
+				max-width: 100%;
+				margin-bottom: 5px !important
+			}
+			figure[data-ke-type='opengraph'] div.og-text p.og-desc,
+			#tt-body-page figure[data-ke-type='opengraph'] div.og-text p.og-desc {
+				font-family: "Noto Sans DemiLight",AppleSDGothicNeo,"Malgun Gothic","맑은 고딕","돋움",dotum,sans-serif,'Font_Awesome_5_Free' !important;
+				font-size: 15px !important;
+				max-height: none;
+			}
+			figure[data-ke-type='opengraph'] div.og-text p.og-host,
+			#tt-body-page figure[data-ke-type='opengraph'] div.og-text p.og-host {
+				font-family: "Noto Sans DemiLight",AppleSDGothicNeo,"Malgun Gothic","맑은 고딕","돋움",dotum,sans-serif,'Font_Awesome_5_Free' !important;
+				font-size: 14px !important;
+				bottom: 10px;
+			}
+			
+			/* font-size, line-height setting */
+			html {
+				font-size: 16px !important;
+			}
+			.content-article p {
+				line-height: 2 !important;
+			}
+			article .another_category h4:before,
+			article .tags h2, .related-articles h2, .comments h2,
+			article .another_category.another_category_color_gray a,
+			article .another_category.another_category_color_gray a.current,
+			.comment-list ul li .author-meta .control button:before,
+			.comment-list .tt_more_preview_comments_text, .comment-list ul li .reply,
+			.pagination, #blog-menu, article .another_category th:before,
+			#tt-body-page blockquote, .content-article > div > ol, .content-article > div > ul,
+			#tt-body-page div[data-ke-type='moreLess'] .btn-toggle-moreless,
+			.book-toc > p {
+				font-size: calc(1em * 1) !important;
+			}
+			#toc > li > a {
+				font-size: calc(1em * 1) !important;
+			}
+			#toc > li > ul > li > a {
+				font-size: calc(0.95em * 1) !important;
+			}
+			#toc > li > ul > li > ul > li > a {
+				font-size: calc(0.91em * 1) !important;
+			}
+			#toc-body #toc > li > a {
+				font-size: calc(0.91em * 1) !important;
+			}
+			#toc-body #toc > li > ul > li > a {
+				font-size: calc(0.87em * 1) !important;
+			}
+			#toc-body #toc > li > ul > li > ul > li > a {
+				font-size: calc(0.84em * 1) !important;
+			}
+			
+			#tt-body-page blockquote[data-ke-style='style1'] {
+				padding-top: calc(29px * 1) !important;
+				background-size: calc(23px * 1) !important;
+			}
+			h1, h1[data-ke-size] { font-size:calc(1.4em * 1) !important; }
+			h2, h2[data-ke-size] { font-size:calc(1.3em * 1) !important; }
+			h3, h3[data-ke-size] { font-size:calc(1.24em * 1) !important;}
+			h4, h4[data-ke-size] { font-size:calc(1.17em * 1) !important; }
+			#tt-body-page p[data-ke-size='size18'],
+			p[data-ke-size='size18'] { font-size: calc(1.12em * 1) !important; }
+			#tt-body-page p[data-ke-size='size16'],
+			p[data-ke-size='size16'] { font-size: calc(1.08em * 1) !important; }
+			#tt-body-page p[data-ke-size='size14'],
+			p[data-ke-size='size14'] { font-size: calc(0.9em * 1) !important; }
+			figure[data-ke-type='opengraph'] div.og-text p.og-title, #tt-body-page figure[data-ke-type='opengraph'] div.og-text p.og-title {
+				font-size: calc(1.22em * 1) !important;
+			}
+			.comment-list ul li p {
+				font-size: calc(0.9em * 1) !important;
+			}
+			.content-article pre code {
+				font-size: calc(0.85em * 1) !important;
+			}
+			figure[data-ke-type='opengraph'] div.og-text p.og-desc, #tt-body-page figure[data-ke-type='opengraph'] div.og-text p.og-desc {
+				font-size: calc(0.83em * 1) !important;
+			}
+			figure[data-ke-type='opengraph'] div.og-text p.og-host, #tt-body-page figure[data-ke-type='opengraph'] div.og-text p.og-host,
+			figure.fileblock .filename, #tt-body-page figure.fileblock .filename {
+				font-size: calc(0.77em * 1) !important;
+			}
+			figure.fileblock .size, #tt-body-page figure.fileblock .size {
+				font-size: calc(0.67em * 1) !important;
+			}
+			article .tags a, .comment-list ul li .author-meta {
+				font-size: calc(0.8125em * 1) !important;
+			}
+			.comment-form textarea, footer p, .content-title .category,
+			.content-title .meta {
+				font-size: calc(0.875em * 1) !important;
+			}
+			footer .copyright {
+				font-size: calc(0.8em * 1) !important;
+			}
+			.comment-form .submit button {
+				font-size: calc(0.77em * 1) !important;
+				width: calc(100px * 1);
+				height: calc(36px * 1);
+			}
+			.content-title .title-box {
+				height: calc(99px * 1) !important;
+			}
+			#blog-menu {
+				padding-top: calc(30px + 40px / 1);
+			}
+			@media (max-width: 767px) {
+				article .another_category h4:before,
+				article .tags h2, .related-articles h2, .comments h2,
+				article .another_category.another_category_color_gray a,
+				article .another_category.another_category_color_gray a.current,
+				.comment-list ul li .author-meta .control button:before,
+				.comment-list .tt_more_preview_comments_text, .comment-list ul li .reply,
+				.pagination, #blog-menu, article .another_category th:before,
+				#tt-body-page blockquote, .content-article > div > ol, .content-article > div > ul,
+				#tt-body-page div[data-ke-type='moreLess'] .btn-toggle-moreless,
+				.book-toc > p {
+					font-size: calc(1em * 0.9 * 1) !important;
+				}
+				#toc > li > a {
+					font-size: calc(1em * 0.9 * 1) !important;
+				}
+				#toc > li > ul > li > a {
+					font-size: calc(0.95em * 0.9 * 1) !important;
+				}
+				#toc > li > ul > li > ul > li > a {
+					font-size: calc(0.91em * 0.9 * 1) !important;
+				}
+				#toc-body #toc > li > a {
+					font-size: calc(0.91em * 0.9 * 1) !important;
+				}
+				#toc-body #toc > li > ul > li > a {
+					font-size: calc(0.87em * 0.9 * 1) !important;
+				}
+				#toc-body #toc > li > ul > li > ul > li > a {
+					font-size: calc(0.84em * 0.9 * 1) !important;
+				}
+				#tt-body-page blockquote[data-ke-style='style1'] {
+					padding-top: calc(29px * 0.9 * 1) !important;
+					background-size: calc(23px * 0.9 * 1) !important;
+				}
+				h1, h1[data-ke-size] { font-size:calc(1.4em * 0.9 * 1) !important; }
+				h2, h2[data-ke-size] { font-size:calc(1.3em * 0.9 * 1) !important; }
+				h3, h3[data-ke-size] { font-size:calc(1.24em * 0.9 * 1) !important;}
+				h4, h4[data-ke-size] { font-size:calc(1.17em * 0.9 * 1) !important; }
+				#tt-body-page p[data-ke-size='size18'],
+				p[data-ke-size='size18'] { font-size: calc(1.12em * 0.9 * 1) !important; }
+				#tt-body-page p[data-ke-size='size16'],
+				p[data-ke-size='size16'] { font-size: calc(1.08em * 0.9 * 1) !important; }
+				#tt-body-page p[data-ke-size='size14'],
+				p[data-ke-size='size14'] { font-size: calc(0.9em * 0.9 * 1) !important; }
+				figure[data-ke-type='opengraph'] div.og-text p.og-title, #tt-body-page figure[data-ke-type='opengraph'] div.og-text p.og-title {
+					font-size: calc(1.22em * 0.9 * 1) !important;
+					margin-bottom: 10px !important;
+				}
+				.comment-list ul li p {
+					font-size: calc(0.9em * 0.9 * 1) !important;
+				}
+				.content-article pre code {
+					font-size: calc(0.85em * 0.9 * 1) !important;
+				}
+				figure[data-ke-type='opengraph'] div.og-text p.og-desc, #tt-body-page figure[data-ke-type='opengraph'] div.og-text p.og-desc {
+					font-size: calc(0.83em * 0.9 * 1) !important;
+				}
+				figure[data-ke-type='opengraph'] div.og-text p.og-host, #tt-body-page figure[data-ke-type='opengraph'] div.og-text p.og-host {
+					font-size: calc(0.77em * 0.9 * 1) !important;
+				}
+				article .tags a, .comment-list ul li .author-meta {
+					font-size: calc(0.8125em * 0.9 * 1) !important;
+				}
+				.comment-form textarea, footer p, .content-title .category,
+				.content-title .meta {
+					font-size: calc(0.875em * 0.9 * 1) !important;
+				}
+				footer .copyright {
+					font-size: calc(0.8em * 0.9 * 1) !important;
+				}
+				.comment-form .submit button {
+					font-size: calc(0.77em * 0.9 * 1) !important;
+					width: calc(100px * 0.9 * 1);
+					height: calc(36px * 0.9 * 1);
+				}
+				.content-title .title-box {
+					height: calc(99px * 0.9 * 1) !important;
+				}
+				#blog-menu {
+					padding-top: calc(30px + 40px / 0.9 / 1);
+				}
+			}
+			@media (max-width: 600px) {
+				p[data-ke-size='size14'] { font-size: calc(0.9em * 0.9 * 1) !important; }
+				figure[data-ke-type='opengraph'] div.og-text p.og-title, #tt-body-page figure[data-ke-type='opengraph'] div.og-text p.og-title {
+					font-size: calc(1.0em * 0.9 * 1) !important;
+				}
+			}
+			/* shadow effect */
+			
+
+			
+				.layer_post {
+					box-shadow: none !important;
+				}
+			
+
+			/* etc settings */
+			
+			.sidebar .best-post ul li:nth-child(1) {
+				font-size: 0.94em;
+				font-weight: bold;
+			}
+			
+			
+			
+			
+			
+			
+			
+			.sidebar .d-day li:nth-child(1) .d-day-text {
+				color: #FF5400
+			}
+			
+			
+			
+			
+			
+
+			
+				.sidebar #recommend-ads.revenue_unit_item.adsense {
+					height:  900px;
+				}
+				.sidebar #recommend-ads > ins {
+					height: calc(900px - 20px) !important;
+				}
+			
+
+			
+			
+			
+				article {
+					float: left;
+				}
+				aside {
+					float: right;
+				}
+			
+			
+			
+				section, footer, header, .floating-toc-new:after {
+					background: #fff;
+				}
+			
+			
+				header p a {color:#000000}
+			
+
+			
+				#blog-menu ul li a {color:#000000}
+			
+
+			
+				header:after, section:after, footer:after, .content-title:after, .top-button .menu button:before,
+				.book-toc:after, .top-button .menu button:before, .move-top-btn:before, .move-comment-btn:before, .floating-toc-new,
+				.mobile-menu aside:after, .toast-wrap:after, .share-btn:before, .dark-mode-on-btn:before, .dark-mode-off-btn:before, .font-size-up-btn:before, .font-size-down-btn:before,
+				#toc-body::-webkit-scrollbar-track, ::-webkit-scrollbar-track {background-color:#FFFFFF}
+
+				.cover-list ul li a, .post-item a, .cover-special ul li,
+				article > .inner > ul li a {
+					background: #FFFFFF1A;
+				}
+				.comment-list ul li .author-meta .control .link a {
+					background: #FFFFFFDD;
+				}
+			
+			
+			
+				.sidebar h2 {background-color:#FFF9F5}
+			
+
+			
+				.sidebar h2, .sidebar h2 a {color:#A50000}
+			
+			
+			
+				.sidebar .category .c_cnt,
+				article .another_category th a,
+				.pagination .next:before,
+				.pagination .prev:before, .content-title .meta a,
+				.content-article h2 button, .content-title .category, .content-title .meta,
+				.content-article h3 button, #tt-body-search .post-header h1 span:before,
+				.content-article h4 button, .tags a:before, #tt-body-tag .post-header h1 span:before, .cover-special ul li .category,
+				.more-reply, #toc-title p, .search button:before, .content-article a, .toast, .change-font-btn, .post-item .meta .category,
+				.content-article .book-toc p, .content-article .book-toc p span#toggle, .cover-list ul li .meta .category, article > .inner > ul li .meta .category,
+				.comments h2 .count, article .another_category th:before, .post-header h1 em, .bgm-btn, .dark-mode-btn-dark, .dark-mode-btn-default,
+				.move-top-btn:after, .move-comment-btn:after, .top-button .menu button:after, .post-header h1:before, article h2:before, .content-article .copy-title-btn,
+				.share-btn:after,.dark-mode-on-btn:after,.dark-mode-off-btn:after, .font-size-up-btn:after, .font-size-down-btn:after,
+				#toc > li a:after, #toc > li > ul > li a:after, #toc > li > ul > li > ul > li a:after {color:#A50000}
+				#toc-title p #toggle, .floating-icon:after, .sidebar .recent-comment ul li a:before, .sidebar .archives ul li a:before,
+				.sidebar .notice ul li a:before, .sidebar .best-post ul li a:before, .sidebar .d-day ul li span:first-child:before,
+				.sidebar .category .category_list .link_item:before, .bgm-header, h2 .bgm-btn,
+				.sidebar .category .sub_category_list .link_sub_item:before,
+				#toc > li:before, #toc > li > ul > li:before, #toc > li > ul > li > ul > li:before {color:#A50000 !important;opacity:0.7;}
+				.content-article h2 {border-left: #A50000ff 12px solid !important;border-bottom: 0px solid #A50000ff !important;}
+				.content-article h3 {border-left: #A50000cc 10px solid !important;border-bottom: 0px solid #A50000cc !important;}
+				.content-article h4 {border-left: #A5000088 8px solid !important;border-bottom: 0px solid #A5000088 !important;}
+				.comment-form .submit button,
+				.progress-bar-vertical, .progress-bar-horizontal,
+				.progress-bar-etc-vertical, .progress-bar-etc-horizontal,
+				.sidebar .close:before, .sidebar .close:after {background-color:#A50000}
+				.move-top-btn, .move-comment-btn, .top-button .menu button, .sidebar .close, .top-button .profile button,
+				.share-btn, .dark-mode-on-btn, .dark-mode-off-btn, .font-size-up-btn, .font-size-down-btn, .toast-wrap
+				{border: 2px solid #A5000055 !important}
+				.comment-list ul li .author-meta .control .link a {border: 1px solid #A5000055}
+				::-webkit-scrollbar-thumb, #toc-body::-webkit-scrollbar-thumb {background-color:#A5000055 !important}
+				.search input {border-bottom: 2px solid #A5000055;}
+				article .another_category.another_category_color_gray a, .comment-list ul li .author-meta .control button:before,
+				.comment-list .tt_more_preview_comments_text, .content-box .content-arrow {
+					color:#A50000 !important;
+				}
+				.sidebar .category ul li ul li {
+					border-bottom: 2px dashed #A5000055;
+				}
+				.comment-list ul li ul li:after {
+					background: linear-gradient(90deg, #A5000055, transparent 50%);
+				}
+				.content-box {
+					background-color: #FFF9F5cc;
+					color: #A50000;
+				}
+				.content-box a {
+					color: #A50000;
+				}
+				.content-comment {
+					background-color: #A5000033;
+				}
+				.content-article u {
+					text-decoration-color: #A5000099;
+				}
+				.content-close-btn:after {
+					color: #A50000ff;
+				}
+
+				/* solid style */
+				
+					.comment-form .field {
+						border-left: 2px solid #A5000055;
+						border-right: 2px solid #A5000055;
+						border-bottom: 0px;
+						border-top: 0px;
+					}
+					.comment-form .field input[type=text] {
+						border-top: 2px solid #A5000055;
+					}
+					.comment-form .field input[type=password] {
+						border-left: 2px solid #A5000055;
+						border-top: 2px solid #A5000055;
+					}
+					.container_postbtn .postbtn_like,
+					.container_postbtn .btn_menu_toolbar {
+						border: 2px solid #A5000055 !important;
+					}
+					.comment-list, .comment-list ul li ul li {
+						border-top: 2px dashed #A5000055;
+					}
+					.sidebar .category, .sidebar .notice, .sidebar .recent, .sidebar .profile-info, 
+					.sidebar .popular, .sidebar .recent-comment, .sidebar .tags, #tistorySnsLayer.layer_post,
+					.sidebar .count, .sidebar .module_plugin, .archives, .comment-form textarea,
+					.comment-list .tt_more_preview_comments_text, .sidebar .best-post, .sidebar .d-day,
+					figure.fileblock, #tt-body-page figure.fileblock {
+						border: 2px solid #A5000055;
+					}
+					#___gcse_1 {
+						border: 2px solid #A5000055;
+					}
+				
+				
+					section .content-wrapper {
+						border: 2px solid #A5000055;
+					}
+				
+				
+					.content-title {
+						border: 2px solid #A5000055;
+					}
+				
+				
+					.floating-toc-new, .book-toc {
+						border: 2px solid #A5000055;
+					}
+				
+				
+					figure[data-ke-type='opengraph'], #tt-body-page figure[data-ke-type='opengraph'] {
+						border: 2px solid #A5000055;
+					}
+				
+				
+					.cover-list ul li, .post-item a, .cover-special ul li, article > .inner > ul li {
+						border: 2px solid #A5000055;
+					}
+				
+				
+					.main-ads, #ad-top-left, #ad-top-right, #ad-bottom-left, #ad-bottom-right {
+						border: 2px solid #A5000055;
+					}
+				
+				
+					figure.imageblock, #tt-body-page figure.imageblock,
+					figure.imagegridblock > div > span > img, #tt-body-page figure.imagegridblock > div > span > img {
+						border: 2px solid #A5000055;
+					}
+					figure.imageblock span[data-lightbox], #tt-body-page figure.imageblock span[data-lightbox] {
+						display: flex;
+					}
+				
+			
+			
+			/* custom dark mode color */
+			
+				
+					body.dark-mode header p a {color:#000000}
+				
+
+				
+					body.dark-mode #blog-menu ul li a {color:#F9D8D8}
+				
+
+				
+					body.dark-mode header:after, body.dark-mode section:after, body.dark-mode footer:after, body.dark-mode .content-title:after, body.dark-mode .top-button .menu button:before,
+					body.dark-mode .book-toc:after, body.dark-mode .top-button .menu button:before, body.dark-mode .move-top-btn:before, .move-comment-btn:before,
+					body.dark-mode .mobile-menu aside:after, body.dark-mode .toast-wrap:after, body.dark-mode .share-btn:before, body.dark-mode .dark-mode-on-btn:before, body.dark-mode .dark-mode-off-btn:before, body.dark-mode .font-size-up-btn:before, body.dark-mode .font-size-down-btn:before
+					{background-color:#F9D8D8}
+
+					body.dark-mode .cover-list ul li a, body.dark-mode .post-item a, body.dark-mode .cover-special ul li, body.dark-mode .floating-toc-new,
+					body.dark-mode article > .inner > ul li a {
+						background: #F9D8D81A;
+					}
+				
+			
+				
+					body.dark-mode .sidebar h2 {background-color:#111111 !important}
+				
+
+				
+					body.dark-mode .sidebar h2, body.dark-mode .sidebar h2 a {color:#FFBE9B !important}
+				
+			
+				
+					body.dark-mode .sidebar .category .c_cnt,
+					body.dark-mode article .another_category th a,
+					body.dark-mode .pagination .next:before,
+					body.dark-mode .pagination .prev:before, body.dark-mode .content-title .meta a,
+					body.dark-mode .content-article h2 button, body.dark-mode .content-title .category, body.dark-mode .content-title .meta,
+					body.dark-mode .content-article h3 button, body.dark-mode #tt-body-search .post-header h1 span:before,
+					body.dark-mode .content-article h4 button, body.dark-mode .tags a:before, body.dark-mode #tt-body-tag .post-header h1 span:before, body.dark-mode .cover-special ul li .category,
+					body.dark-mode .more-reply, body.dark-mode #toc-title p, body.dark-mode .search button:before, body.dark-mode .content-article a, body.dark-mode .toast, body.dark-mode .change-font-btn, body.dark-mode .post-item .meta .category,
+					body.dark-mode .content-article .book-toc p, body.dark-mode .content-article .book-toc p span#toggle, body.dark-mode #toc > li:before, body.dark-mode #toc > li > ul > li:before, body.dark-mode #toc > li > ul > li > ul > li:before, body.dark-mode .cover-list ul li .meta .category, body.dark-mode article > .inner > ul li .meta .category,
+					body.dark-mode .comments h2 .count, body.dark-mode article .another_category th:before, body.dark-mode .post-header h1 em, body.dark-mode .bgm-btn, body.dark-mode .dark-mode-btn-dark, body.dark-mode .dark-mode-btn-default,
+					body.dark-mode .move-top-btn:after, body.dark-mode .move-comment-btn:after, body.dark-mode .top-button .menu button:after, body.dark-mode .post-header h1:before, body.dark-mode article h2:before, body.dark-mode .content-article .copy-title-btn,
+					body.dark-mode .share-btn:after, body.dark-mode .dark-mode-on-btn:after, body.dark-mode .dark-mode-off-btn:after, body.dark-mode .font-size-up-btn:after, body.dark-mode .font-size-down-btn:after,
+					body.dark-mode #toc > li a:after, body.dark-mode #toc > li > ul > li a:after, body.dark-mode #toc > li > ul > li > ul > li a:after {color:#FF935B}
+					body.dark-mode #toc-title p #toggle, body.dark-mode .floating-icon:after, body.dark-mode .sidebar .recent-comment ul li a:before, body.dark-mode .sidebar .archives ul li a:before,
+					body.dark-mode .sidebar .notice ul li a:before, body.dark-mode .sidebar .best-post ul li a:before, body.dark-mode .sidebar .d-day ul li span:first-child:before,
+					body.dark-mode .sidebar .category .category_list .link_item:before, body.dark-mode .bgm-header, body.dark-mode h2 .bgm-btn,
+					body.dark-mode .sidebar .category .sub_category_list .link_sub_item:before,
+					body.dark-mode #toc > li:before, body.dark-mode #toc > li > ul > li:before, body.dark-mode #toc > li > ul > li > ul > li:before {color:#FF935B !important;opacity:0.7;}
+					body.dark-mode .content-article h2 {border-left: #FF935Bff 12px solid !important;border-bottom: 0px solid #FF935Bff !important;}
+					body.dark-mode .content-article h3 {border-left: #FF935Bcc 10px solid !important;border-bottom: 0px solid #FF935Bcc !important;}
+					body.dark-mode .content-article h4 {border-left: #FF935B88 8px solid !important;border-bottom: 0px solid #FF935B88 !important;}
+					body.dark-mode .comment-form .submit button,
+					body.dark-mode .progress-bar-vertical, body.dark-mode .progress-bar-horizontal,
+					body.dark-mode .progress-bar-etc-vertical, body.dark-mode .progress-bar-etc-horizontal,
+					body.dark-mode .sidebar .close:before, body.dark-mode .sidebar .close:after {background-color:#FF935B}
+					body.dark-mode .move-top-btn, body.dark-mode .move-comment-btn, body.dark-mode .top-button .menu button, body.dark-mode .sidebar .close, body.dark-mode .top-button .profile button,
+					body.dark-mode .share-btn, body.dark-mode .dark-mode-on-btn, body.dark-mode .dark-mode-off-btn, body.dark-mode .font-size-up-btn, body.dark-mode .font-size-down-btn, body.dark-mode .toast-wrap
+					{border: 2px solid #FF935B55 !important}
+					body.dark-mode .search input {border-bottom: 2px solid #FF935B55;}
+					body.dark-mode article .another_category.another_category_color_gray a, body.dark-mode .comment-list ul li .author-meta .control button:before,
+					body.dark-mode .comment-list .tt_more_preview_comments_text, body.dark-mode .content-box .content-arrow {
+						color:#FF935B !important;
+					}
+					body.dark-mode .sidebar .category ul li ul li {
+						border-bottom: 2px dashed #FF935B55;
+					}
+					body.dark-mode .comment-list ul li ul li:after {
+						background: linear-gradient(90deg, #A5000055, transparent 50%);
+					}
+					body.dark-mode .content-box {
+						background-color: #11111199;
+						color: #FFBE9B;
+					}
+					body.dark-mode .content-box a {
+						color: #FFBE9B;
+					}
+					body.dark-mode .content-comment {
+						background-color: #FF935B33;
+					}
+					body.dark-mode .content-article u {
+						text-decoration-color: #FF935B99;
+					}
+					body.dark-mode .content-close-btn:after {
+						color: #FF935Bff;
+					}
+
+					/* solid style */
+					
+						body.dark-mode .comment-form .field {
+							border-top: 2px solid #FF935B;
+							border-left: 2px solid #FF935B;
+							border-right: 2px solid #FF935B;
+							border-bottom: 0px;
+						}
+						body.dark-mode .comment-form .field input[type=password] {
+							border-left: 2px solid #FF935B;
+						}
+						body.dark-mode .container_postbtn .postbtn_like,
+						body.dark-mode .container_postbtn .btn_menu_toolbar {
+							border: 2px solid #FF935B55 !important;
+						}
+						body.dark-mode .comment-list, body.dark-mode .comment-list ul li ul li {
+							border-top: 2px dashed #FF935B55;
+						}
+						body.dark-mode .sidebar .category, body.dark-mode .sidebar .notice, body.dark-mode .sidebar .recent, body.dark-mode .sidebar .profile-info, 
+						body.dark-mode .sidebar .popular, body.dark-mode .sidebar .recent-comment, body.dark-mode .sidebar .tags, body.dark-mode #tistorySnsLayer.layer_post,
+						body.dark-mode .sidebar .count, body.dark-mode .sidebar .module_plugin, body.dark-mode .archives, body.dark-mode .comment-form textarea,
+						body.dark-mode .comment-list .tt_more_preview_comments_text, body.dark-mode .sidebar .best-post, body.dark-mode .sidebar .d-day,
+						body.dark-mode figure.fileblock, body.dark-mode #tt-body-page figure.fileblock {
+							border: 2px solid #FF935B55;
+						}
+					
+					
+						body.dark-mode section .content-wrapper {
+							border: 2px solid #FF935B55;
+						}
+					
+					
+						body.dark-mode .content-title {
+							border: 2px solid #FF935B55;
+						}
+					
+					
+						body.dark-mode .floating-toc-new, body.dark-mode .book-toc {
+							border: 2px solid #FF935B55;
+						}
+					
+					
+						body.dark-mode figure[data-ke-type='opengraph'], body.dark-mode #tt-body-page figure[data-ke-type='opengraph'] {
+							border: 2px solid #FF935B55 !important;
+						}
+					
+					
+						body.dark-mode .cover-list ul li, body.dark-mode .post-item a, body.dark-mode .cover-special ul li, body.dark-mode article > .inner > ul li {
+							border: 2px solid #FF935B55;
+						}
+					
+					
+						body.dark-mode .main-ads, body.dark-mode #ad-top-left, body.dark-mode #ad-top-right, body.dark-mode #ad-bottom-left, body.dark-mode #ad-bottom-right {
+							border: 2px solid #FF935B55;
+						}
+					
+					
+						body.dark-mode figure.imageblock, body.dark-mode #tt-body-page figure.imageblock,
+						body.dark-mode figure.imagegridblock > div > span > img, body.dark-mode #tt-body-page figure.imagegridblock > div > span > img {
+							border: 2px solid #FF935B55 !important;
+						}
+					
+				
+			
+			
+			
+				body.dark-mode .content-article p span:not(#toggle),
+				body.dark-mode .content-article li,
+				body.dark-mode blockquote[data-ke-style='style3'], body.dark-mode #tt-body-page blockquote[data-ke-style='style3'],
+				body.dark-mode table, body.dark-mode table span {
+					color: #d6d6d6 !important;
+					background-color: transparent !important;
+				}
+			
+
+			
+			
+				.post-item .title {-webkit-line-clamp:2;}
+			
+			
+				.post-item .excerpt {-webkit-line-clamp:3}
+			
+			
+			
+			
+				.sidebar .category .category_list .link_item:before {content: "\f107"}
+			
+			
+				.sidebar .category .sub_category_list .link_sub_item:before {content: "\f105"}
+			
+			
+				.fold:before {content: "\f106" !important}
+			
+			
+				#toc > li:before {content: "\f0d7" !important}
+				#toc > li a:after {content:"\f060" !important;font-size:0.8em;margin-left:5px;opacity:0;}
+				#toc > li a.selected:after {opacity:1;}
+			
+			
+				#toc > li ul li:before {content: "\2022" !important}
+				#toc > li ul li a:after {content:"\f060" !important;font-size:0.8em;margin-left:5px;opacity:0;}
+				#toc > li ul li a.selected:after {opacity:1;}
+			
+			
+				#toc > li ul li ul li:before {content: "\2219" !important}
+				#toc > li ul li ul li a:after {content:"\f060" !important;font-size:0.8em;margin-left:5px;opacity:0;}
+				#toc > li ul li ul li a.selected:after {opacity:1;}
+			
+			
+			
+				.floating-toc-new #toc-body #toc {
+					width: max-content;
+				}
+			
+			
+				section .content-wrapper {max-width:1100px;}
+				header .inner {max-width:calc(1100px + 40px);}
+				footer .inner {max-width:calc(1100px + 40px);}
+				article {width:calc(1100px - 341px - 2px);}
+				.cover-special ul li img {
+					width: calc((1100px - 356px - 2px) * 0.5);
+					height: calc((1100px - 356px - 2px) * 0.5);
+				}
+				@media (max-width: calc(1100px + 42px)) {					
+					#aside-top-blank {
+						display: none !important;
+					}
+					section .content-wrapper {
+						width: initial !important;
+						padding: 10px;
+					}
+					.cover-special ul li img {
+						width: calc((100vw - 48px - 2px) * 0.5) !important;
+						height: calc((100vw - 48px - 2px) * 0.5) !important;
+					}
+					.top-button {
+						position: fixed;
+					}
+					.top-button .profile {
+						display: none;
+					}
+					.top-button .menu {
+						display: block;
+						position: relative;
+						float: left;
+						margin-left: 14px;
+					}
+					.top-button .menu button {
+						display: flex;
+						overflow: hidden;
+						width: 32px;
+						height: 32px;
+						border-radius: 50%;
+						background-color: #fff;
+						align-items: center;
+						justify-content: center;
+					}
+					.top-button .menu button:before {
+						content: "";
+						position: absolute;
+						width: 100%;
+						height: 100%;
+						top: 0;
+						left: 0;
+						opacity: 0.1;
+						border-radius: 50%;
+					}
+					.top-button .menu button:after {
+						content: "\f0c9";
+						position: absolute;
+						visibility: visible;
+						font-family: 'Font_Awesome_5_Free';
+					}
+					article {
+						max-width: 1100px;
+						width: initial !important;
+						float: none !important;
+						width: auto;
+						padding-left: 0px;
+					}
+					.mobile-menu aside {
+						right: 0;
+						padding-left: 1px;
+						padding-right: 1px;
+					}
+					.mobile-menu aside:after {
+						content: "";
+						position: fixed;
+						width: 100%;
+						height: 100%;
+						top: 0;
+						z-index: -1;
+						opacity: 0.1;
+					}
+					.sidebar {
+						position: fixed;
+						top: 0;
+						right: -313px;
+						z-index: 202;
+						float: none;
+						overflow-y: auto;
+						overflow-x: hidden;
+						width: 313px;
+						height: 100%;
+						padding: 70px 0 0 0;
+						background-color: #fff;
+						box-sizing: border-box;
+						transition: left 0.3s;
+						-webkit-transition: right 0.3s;
+					}
+					.sidebar .close {
+						position: absolute;
+						top: 10px;
+						right: 10px;
+						display: block;
+						width: 30px;
+						height: 30px;
+						border-radius: 50%;
+						text-indent: -999em;
+						outline: none;
+					}
+					.sidebar .close span {display: none;}
+					.sidebar .close:before,
+					.sidebar .close:after {
+						content: "";
+						position: absolute;
+						top: 50%;
+						left: 50%;
+						width: 16px;
+						height: 1px;
+						margin: 0 0 0 -8px;
+					}
+					.sidebar .close:before {
+						transform: rotate(-45deg);
+					}
+					.sidebar .close:after {
+						transform: rotate(45deg);
+					}
+
+					.sidebar .profile {
+						display: block;
+						position: relative;
+						margin-bottom: -40px;
+					}
+					.sidebar .profile:before {
+						content: "";
+						position: absolute;
+						top: 0;
+						z-index: 0;
+						width: 100%;
+						height: 100%;
+						background-color: #f5f5f5;
+						padding-right: 28px;
+					}
+					.sidebar .profile ul {
+						position: relative;
+						z-index: 10;
+						text-align: center;
+					}
+					.sidebar .profile ul li {
+						display: inline-block;
+						padding: 16px 0 18px;
+						font-size: 0.875em;
+						color: #555;
+						vertical-align: middle;
+					}
+					.sidebar .profile ul li a {
+						display: inline-block;
+						vertical-align: middle;
+					}
+					.sidebar .profile ul li:before {
+						content: "";
+						display: inline-block;
+						width: 1px;
+						height: 7px;
+						margin: 0 30px 0 26px;
+						background-size: 200px auto;
+						vertical-align: middle;
+					}
+					.sidebar .profile ul li:first-child:before {
+						content: none;
+					}
+					.content-title h1 {
+						-webkit-line-clamp: 3;
+					}
+					.content-title .title-box {
+						height: 99px;
+					}
+					.comment-list ul li ul li .author-meta {
+						padding-left: 95px;
+					}
+					.comment-list ul li .author-meta .date {
+						display: block;
+						margin-left: -13px;
+					}
+					.comment-list ul li ul li p {
+						padding-left: 25px;
+					}
+					.comment-list ul li p {
+						padding: 25px 0 15px 5px;
+					}
+					.comment-list ul li ul li {
+						padding: 15px 0 0 0;
+					}
+					.comment-list ul li {
+						padding: 15px 0 0 0;
+					}
+					.more-reply {
+						margin-bottom: 0;
+					}
+				}
+				@media (max-width: 1079px) {
+					#aside-top-blank {
+						display: none !important;
+					}
+					.cover-special ul li img {
+						width: calc((100vw - 48px - 2px) * 0.5) !important;
+						height: calc((100vw - 48px - 2px) * 0.5) !important;
+					}
+					.top-button {
+						position: fixed;
+					}
+					.top-button .profile {
+						display: none;
+					}
+					.top-button .menu {
+						display: block;
+						position: relative;
+						float: left;
+						margin-left: 14px;
+					}
+					.top-button .menu button {
+						display: flex;
+						overflow: hidden;
+						width: 32px;
+						height: 32px;
+						border-radius: 50%;
+						background-color: #fff;
+						align-items: center;
+						justify-content: center;
+					}
+					.top-button .menu button:before {
+						content: "";
+						position: absolute;
+						width: 100%;
+						height: 100%;
+						top: 0;
+						left: 0;
+						opacity: 0.1;
+						border-radius: 50%;
+					}
+					.top-button .menu button:after {
+						content: "\f0c9";
+						position: absolute;
+						visibility: visible;
+						font-family: 'Font_Awesome_5_Free';
+					}
+					article {
+						float: none !important;
+						width: auto;
+						padding-left: 0px;
+						padding-right: 0px;
+					}
+					.mobile-menu aside {
+						right: 0;
+						padding-left: 1px;
+						padding-right: 1px;
+					}
+					.mobile-menu aside:after {
+						content: "";
+						position: fixed;
+						width: 100%;
+						height: 100%;
+						top: 0;
+						z-index: -1;
+						opacity: 0.1;
+					}
+					.sidebar {
+						position: fixed;
+						top: 0;
+						right: -313px;
+						z-index: 202;
+						float: none;
+						overflow-y: auto;
+						overflow-x: hidden;
+						width: 313px;
+						height: 100%;
+						padding: 70px 0 0 0;
+						background-color: #fff;
+						box-sizing: border-box;
+						transition: left 0.3s;
+						-webkit-transition: right 0.3s;
+					}
+					.sidebar .close {
+						position: absolute;
+						top: 10px;
+						right: 10px;
+						display: block;
+						width: 30px;
+						height: 30px;
+						border-radius: 50%;
+						text-indent: -999em;
+						outline: none;
+					}
+					.sidebar .close span {display: none;}
+					.sidebar .close:before,
+					.sidebar .close:after {
+						content: "";
+						position: absolute;
+						top: 50%;
+						left: 50%;
+						width: 16px;
+						height: 1px;
+						margin: 0 0 0 -8px;
+					}
+					.sidebar .close:before {
+						transform: rotate(-45deg);
+					}
+					.sidebar .close:after {
+						transform: rotate(45deg);
+					}
+
+					.sidebar .profile {
+						display: block;
+						position: relative;
+						margin-bottom: -40px;
+					}
+					.sidebar .profile:before {
+						content: "";
+						position: absolute;
+						top: 0;
+						z-index: 0;
+						width: 100%;
+						height: 100%;
+						background-color: #f5f5f5;
+						padding-right: 28px;
+					}
+					.sidebar .profile ul {
+						position: relative;
+						z-index: 10;
+						text-align: center;
+					}
+					.sidebar .profile ul li {
+						display: inline-block;
+						padding: 16px 0 18px;
+						font-size: 0.875em;
+						color: #555;
+						vertical-align: middle;
+					}
+					.sidebar .profile ul li a {
+						display: inline-block;
+						vertical-align: middle;
+					}
+					.sidebar .profile ul li:before {
+						content: "";
+						display: inline-block;
+						width: 1px;
+						height: 7px;
+						margin: 0 30px 0 26px;
+						background-size: 200px auto;
+						vertical-align: middle;
+					}
+					.sidebar .profile ul li:first-child:before {
+						content: none;
+					}
+					.content-title h1 {
+						-webkit-line-clamp: 3;
+					}
+					.content-title .title-box {
+						height: 99px;
+					}
+					.comment-list ul li ul li .author-meta {
+						padding-left: 95px;
+					}
+					.comment-list ul li .author-meta .date {
+						display: block;
+						margin-left: -13px;
+					}
+					.comment-list ul li ul li p {
+						padding-left: 25px;
+					}
+					.comment-list ul li p {
+						padding: 25px 0 15px 5px;
+					}
+					.comment-list ul li ul li {
+						padding: 15px 0 0 0;
+					}
+					.comment-list ul li {
+						padding: 15px 0 0 0;
+					}
+					.more-reply {
+						margin-bottom: 0;
+					}
+					#blog-menu {
+						float: none;
+					}
+				}
+				@media (max-width: 767px) {
+					.cover-special ul li img {
+						width: calc(100vw - 30px) !important;
+						height: calc(100vw - 30px) !important;
+						float: none;
+					}
+				}
+				.floating-toc-new {
+					max-width: calc((100vw - 1100px - 140px) / 2);
+					min-width: 50px;
+				}
+			
+			
+			
+			
+			
+			
+		</style>
+		<script>
+			window.$ = window.jQuery = window.tjQuery;
+			var pageLoaded = false;
+			function adPush() {
+				//try{(adsbygoogle = window.adsbygoogle || []).push({});}catch(e){}
+				(adsbygoogle = window.adsbygoogle || []).push({});
+			}
+			function adPushDelay() {
+				(new Promise(function(resolve, reject) {
+					var timer = 0;
+					timer = setInterval(function() {
+						if(pageLoaded) {
+							clearInterval(timer);
+							resolve();
+						}
+					}, 200);
+				})).then(function(){
+					setTimeout(function() {
+						//try{(adsbygoogle = window.adsbygoogle || []).push({});}catch(e){}
+						(adsbygoogle = window.adsbygoogle || []).push({});
+					}, 500);
+				});
+			}
+		</script>
+	<meta name="로봇" content="&lt;meta name=&quot;robots&quot; content=&quot;index,follow&quot;&gt;">
+<meta name="네이버" content="&lt;meta name=&quot;Yeti&quot; content=&quot;index,follow&quot;&gt;"><!-- BEGIN GOOGLE_SITE_VERIFICATION -->
+<meta name="google-site-verification" content="qcFp7Lo2BKqaADuhPQ21CqG42NfsgG4kQ6sGt0NMPhg">
+<!-- END GOOGLE_SITE_VERIFICATION --><script async="" src="./update_anomaly_files/js"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config','G-JD163VB8X8');
+</script><link rel="stylesheet" type="text/css" href="./update_anomaly_files/shareEntryWithSNS.css">
+<script src="./update_anomaly_files/shareEntryWithSNS.js"></script>
+
+<style>
+		#daumSearchBox {
+			height: 21px;
+			background-image : url(//i1.daumcdn.net/imgsrc.search/search_all/show/tistory/plugin/bg_search2_2.gif);
+			margin: 5px auto ;
+			padding: 0;
+		}
+		#daumSearchBox input {
+			background: none;
+			margin : 0;
+			padding : 0;
+			border : 0;
+		}
+		#daumSearchBox #daumLogo {
+			width: 34px;
+			height: 21px;
+			float: left;
+			margin-right: 5px;
+			background-image : url(//i1.daumcdn.net/img-media/tistory/img/bg_search1_2_2010ci.gif);
+		}
+		#daumSearchBox #show_q {
+			background-color: transparent;
+			border: none;
+			font: 12px Gulim, Sans-serif;
+			color: #555;
+			margin-top: 4px;
+			margin-right: 15px;
+			float: left;
+		}
+
+		#daumSearchBox #show_btn {
+			background-image : url(//i1.daumcdn.net/imgsrc.search/search_all/show/tistory/plugin/bt_search_2.gif);
+			width: 37px;
+			height: 21px;
+			float: left;
+			margin:0;
+			cursor:pointer;
+			text-indent:-1000em;
+		}
+	</style>
+<link rel="stylesheet" type="text/css" href="./update_anomaly_files/style(1).css">
+<script src="./update_anomaly_files/profile.js"></script>
+	<style>
+		.another_category { border: 1px solid #E5E5E5; padding: 10px 10px 5px; margin:10px 0; clear: both; }
+		.another_category h4 { font-size: 12px !important; margin: 0 !important; border-bottom: 1px solid #E5E5E5 !important; padding: 2px 0 6px !important; }
+		.another_category h4 a { font-weight: bold !important; }
+		.another_category table { table-layout: fixed; border-collapse: collapse; width: 100% !important; margin-top: 10px !important; }
+		* html .another_category table { width: auto !important; }
+		*:first-child+html .another_category table { width: auto !important; }
+		.another_category th, .another_category td { padding: 0 0 4px !important; }
+		.another_category th { text-align: left; font-size: 12px !important; font-weight: normal;  word-break: break-all; overflow: hidden; line-height: 1.5; }
+		.another_category td { text-align: right; width: 80px; font-size: 11px; }
+		.another_category th a { font-weight: normal; text-decoration: none; border: none !important; }
+		.another_category th a.current{ font-weight: bold; text-decoration: none !important; border-bottom: 1px solid !important; }
+		.another_category th span { font-weight: normal; text-decoration: none; font: 10px Tahoma, Sans-serif; border: none !important; }
+
+		.another_category_color_gray, .another_category_color_gray h4 { border-color: #E5E5E5 !important; }
+		.another_category_color_gray * { color: #909090 !important; }
+		.another_category_color_gray th a.current{border-color:#909090 !important;}
+		.another_category_color_gray h4, .another_category_color_gray h4 a { color: #737373 !important; }
+
+
+		.another_category_color_red, .another_category_color_red h4 { border-color: #F6D4D3 !important;  }
+		.another_category_color_red * { color: #E86869 !important; }
+		.another_category_color_red th a.current{border-color:#E86869 !important;}
+		.another_category_color_red h4, .another_category_color_red h4 a { color: #ED0908 !important; }
+
+
+		.another_category_color_green, .another_category_color_green h4 { border-color: #CCE7C8 !important; }
+		.another_category_color_green * { color: #64C05B !important; }
+		.another_category_color_green th a.current{border-color:#64C05B !important;}
+		.another_category_color_green h4, .another_category_color_green h4 a { color: #3EA731 !important; }
+
+
+		.another_category_color_blue, .another_category_color_blue h4 { border-color: #C8DAF2 !important; }
+		.another_category_color_blue * { color: #477FD6 !important; }
+		.another_category_color_blue th a.current{border-color:#477FD6 !important;}
+		.another_category_color_blue h4, .another_category_color_blue h4 a { color: #1960CA !important; }
+
+
+		.another_category_color_violet, .another_category_color_violet h4 { border-color: #E1CEEC !important;  }
+		.another_category_color_violet * { color:#9D64C5 !important; }
+		.another_category_color_violet th a.current{border-color:#9D64C5 !important;}
+		.another_category_color_violet h4, .another_category_color_violet h4 a { color: #7E2CB5 !important; }
+	</style>
+<script>
+        
+        window.TistoryBlog = {
+            basePath: "",
+            url: "https://developer-talk.tistory.com",
+            tistoryUrl: "https://developer-talk.tistory.com",
+			manageUrl: 'https://developer-talk.tistory.com/manage',
+            token: 'pfRYVImazaP1SAhr7LpXBw=='
+        };
+        var servicePath = "";
+        var blogURL = "";
+    </script>
+
+	<script> (function() { window.orgjQuery = window.jQuery; window.jQuery = tjQuery })()</script>
+    <script defer="" src="./update_anomaly_files/reaction-button-container.min.js"></script>
+    <script> (function() { window.jQuery = window.orgjQuery; delete window.orgjQuery })()</script>
+        <script src="./update_anomaly_files/base.js"></script>
+        <link rel="stylesheet" type="text/css" href="./update_anomaly_files/dialog.css">
+            <link rel="stylesheet" type="text/css" href="./update_anomaly_files/font(1).css">
+    <link rel="stylesheet" type="text/css" href="./update_anomaly_files/postBtn.css">
+        <link rel="stylesheet" type="text/css" href="./update_anomaly_files/tistory.css">
+    <script src="./update_anomaly_files/tistory.js"></script>
+        <script src="./update_anomaly_files/kakao.min.js"></script>
+
+        <link rel="stylesheet" type="text/css" href="./update_anomaly_files/revenue.css"><style>.adfit__tag-button{-webkit-tap-highlight-color:transparent;-webkit-box-direction:normal;-webkit-font-feature-settings:"tnum";font-feature-settings:"tnum";border:1px solid transparent;border-radius:2px;-webkit-box-sizing:border-box;box-sizing:border-box;color:#fff;display:inline-block;font-family:sans-serif;font-size:10px;font-variant:tabular-nums;height:auto;letter-spacing:0;line-height:18px;list-style:none;margin:4px 4px 0 0;opacity:.9;padding:0 7px;white-space:nowrap}.adfit__tag-button,.adfit__tag-button--yellow{background-color:#fa8c16}.adfit__tag-button--purple{background-color:#722ed1}.adfit__tag-button--blue{background-color:#108ee9}.adfit__tag-button--orange{background-color:#f50}.adfit__tag-button--green{background-color:#8bc34a}</style><style>.adfit__debug-toolbar{position:absolute;z-index:9999999}.adfit__debug-toolbar--top{right:0;top:0}.adfit__debug-toolbar--bottom{bottom:4px;right:0}</style><style>.adfit__border{position:absolute}.adfit__border--left{height:100%;left:0;top:0;width:1px}.adfit__border--right{height:100%;right:0;top:0;width:1px}.adfit__border--top{height:1px;left:0;top:0;width:100%}.adfit__border--bottom{bottom:0;height:1px;left:0;width:100%}</style><style>.adfit__swipeable{height:100%;left:0;position:absolute;top:0;width:100%;z-index:999999}</style><style>.adfit__a11y-layer{pointer-events:none}.adfit__a11y-layer__hint{background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJ4AAAA6CAYAAABBCOCDAAAM3UlEQVR4AeyaA5Qjyx6Hx1rb1sXaGq9t27Zt27Zt27Y3djJKJsNoXv9mT83r7e1MMquHW33Ot5uurnTVdH8p/KtcuIdRXf9vg6LOcoMy9K1eGWLUK0KS0gqFAnfgEFyCUwwubFI+JCW19WIyrmGw/swKUChwCm7BMQYXgH+AF5Ph6pdMIbZNq//W16qeRZYxg6eAaQQ/pxUKBe7AIbgEp+AWHINrKeLBRlwQvPQ31wvNrviZFaBQ4BTcgmNwjeHLmA5NIayk0v1KqHxwDK7BORcM/mAimsRfWTCFAsfgGpxDN/sWJ+iPf2WhFAocg2twzoWETOhEgvKrgWMk1OKCD+B3FEyhEN+oeBQqHoWKR6FQ8ShUPAqFikeh4v3jqFwhk1QtCLRWq5JZRtIaNGigOHLkSDQfM2bMCLN3r7Zt2ypbtGihdFRmgQIFRP7+/jI+KlSoIGXnK1y48Fe4ubklX/v48WPCokWLIv7x4pUvk1GK8vkI8s8qd/Y+Y4cX0Q3sW1D7s+t372q1eOWnIAubAvl9RFUrZ5ZxV3zw8idOnKjjgpd98+bNWHtl4Nq5c+eMjuoyevRorVqtNnOJi4uzvnr1Kp7kQxpz2OLj460mk8mWxBxVq1aV9ujRQx0REWFesWIFEY+K9/pBzcRZk4uHsylSyFfs7H0+v/A3379WPeFn1w+CBQdklYMFM0pGRMqCbW5urp/5xOvfv78GL/nNmzfxEIHN1q1bo35MPPvs2rVLzxVv8eLFyXJ17txZhTr16dNH/fbt2wSIyBKPinfmUMUYe3maNsyhfHi9ekKf7vk0+F/xMdCyeU1pvbu7a/L1K6cqx0EInSjYiusZ0rsLkJ4po6dg27q/DdJ3AZbnd2sk9utZQMO9Z+d2edR3L1eL37GhtIFbbno/d0HZvzNI0PK2apZLdXBnOSN+ILiWmnjoWg8ePGhgAzlSE+/Tp08Jc+bMCedSv379lFa/W7duarSeXPR6vcWReNmzZxfiXCqVmljiUfE+Pfc372RePmHJvFKRKQ+8Y1418qg+B1p3bSxtQF6cN66fQ4nrI4cU1ik/BVrR6k0aXTTM2/vLeObYvvJGjMPQUl0+VTkW32lUL4eCfU/5+0ALvjd3eolvXkbDutkVyBMuCbZ9fF7bhM+zpiDft+K5urp+Llu2rGTMmDFaPoYPH65FHuTlgjHXpUuXjHz069dPTfKNHDlSa2OOnj17qrk0a9ZMwRZv7dq1kblz5xYOGjRIA/GGDBmiYQ6z1WqlLV5qY7w3j2qZuOItX1AqCue9uubT4HzU0MI6e11tsSJ+YuRZPLdUZO5c3qISxfzEYeJg6+Hd5Yzse144USmWtJxcIHCunN5CCAN5I6TBNozv+MRDK5fkxOHl5fVVGRj0OwLls8VDK8aHr6+vgIjHLRc/ioYNGyp0Oh0d43G7WoydCHjYXPHQ1eIc4y2cTxpTNMyeeGjZ+IR+xHSv7HsO6ud4QtKyaU4lNjGOGExE/1a89OnTC2rXri1DC8NHhw4dVFmzZhVy700G/6kdFy5cMCIvJgcikSjRHnnz5hUhX4YMGQSZMmX6CqTTrjaNYzwiCf7HeZA/v3gYs5HzKhUzJd937bK/oooW9hMDtHqYsPDdkw8fH7fPC2eXioySh9jWL/9TjzR74hExbt++HctFq9Wanz17Fs9XRunSpSVojQhorfbu3atnpyEcktbnii768OHDBm66QCBIXLJkCRWPiAdxdm8uE82mZrXMMmfFe/+0lgmhjo5t86g9Pd2Su0l0128f1zKh9evYJrcKk4+hAwppnRUPYzyMK/v3IpOS1MVDLO78+fNGLgqFwkTEc4RMJjOtWrUqkpvepUsXFSYMjiDxOnxmJDY5KI+Kx0eHNrnVzoq3cGbJCLRMSM+c6cumVoj7ipmFIk3LSLdrU5lodOHOigeyZ/ci3aND8TCJYHpG25QpU8K4DB06VIOyv1c85vvaffv2GRzh7u6eIp7RaLRMmzYtjEv37t3VdOXiJ+Ll5ZYcAuGmY3KBFvBnr1ygNWSvXGB2ifCGPXx8fBzelwmrJC5duvSHu0KEXk6ePBnNx/z588OpeHxQ6FothULFo1DxKBQqHoWKlydPHlGlSpWkIEeOHMLMmTMLnjx5Ele5cmUpZmzYJoR81atXl9asWVNGKFeunATpvXv3VsfGxloRfbdXBmaHCKqyl5+OHTsWzd3h4enpmVwOiegDvj1pxYoVE2NLEx+5cuUSknx//fWXpGPHjio+yGK+PUqUKCEuX768hB1SQSD3/fv3/15tadRIcevWrVg+tm/frmffD+f379+PA61atVIirWvXrio8OzxzR+8JZTO7aBLYzxRLbmxIUJy8j/9q8aZOnRoWFRVlAYieQz4s+4SGhsoRSEUcCfmwV8xoNFqxdgiwQ4O9wyO1PxQbLpEHwpI0BGqvXbsWQ87z588vgujMYUVexNLsLRvduXMnFktXqDOXSZMm6dirAU+fPo3ngj1u2B2S2rYlxPeYutju3r0bi+U1pCNeJ5FIEkk+bF1CXQcPHqzp1auXmk3z5s2T5cKPKCQkRI56LViwIBwgdIJngXAOvk/EY+qrgTR88UOULRQKU8rGO0hiHdhMwK7Tf7V4iNxPmDBBx6Zx48YKe+LhOvceRLxRo0ZpsbPW3o5d5EELYU+8bdu2RTEv1YSWcfLkyTqLxWIrUqSI2J54J06ciP4p++E4oCVEXdu1a6dEL2AwGCz4u1MTD8tkqCubggULikgLJJfLTVwePXoUR8QrVKiQCC0YdqTg3Fnx/kW9HYPEdkRhHC/tLO0r0R4rQSuttLOvLa20tBNsFFFQxUJQUASxsREVbe2sRDDhJb4XScy66uYmWYOB7C8wMgxzdTcIcRcOz71vdu/szP+c883cMypaVC8zjts24KkfM4mxTUxM/PJfwJOCRM+yNKHNzMxMpQw8kwE+f3tILuLY/S8Dr1arvVxeXtZTIxFCu/Hx8Z9zUVEkKwNvaWmp2oiIL+G9Poru5eDlX0qaYjnjs+6pdMrnXA/gea2srDy0Cp7ombZrC/DY2NjYT43BKJQJDQwM3IRUe3h4+JuwH4PnIbbKDY+agAC0ZlKtB+/anJ2dFTF4UrfqX2lH6vS9MYgGtgw8OlTKSq2rq+v7tB5Oqkutr6/vx1xf9/b2ag0d9nsMIo2ZA48m9bsZcDxrDe9DemaePojmsonxNBayQwCPrqVNPxI8hQ5zc3P3nxI8P9aEz87OVlRY3N7e/uWajhP+RVG8gsdblWKbcCCp0hWR3gOPwAft0dFRUa/X/+7v778J4JlQ3yFNVCqV17ozE0rrTU1N3ZWBJ7pNT0//mtrIyMi3GDyRc3Jy8i5nuT4reY/h2t/fr52fn/+Rgre2tvYvaMGMFZ0VX2N+i0ge9OfOzs4TGaHKJdV4Hwkencm5PiV4KiikrCDudVg0yKXaYN3d3V+IdoNIDIuYDrUY4NwpKw/Rr6+vn/2/io9qtfpi0NNUe3x8XJhg1RrurQ+Dg4M3OfA8UFfzljNSIbSj00QvBgIwh/csXgHH6RmsdJeVov4vLy9XU/DoP1XEwYylSaeb4+sg8j3GbHt7+2l+fv4+OJ9VM7lD38Xgaa/0vbe39wcrYDsIzYDne9oi1dJSTjxtbGw8Sq1+mFRVBt7CwkLVpJhE2wIipPerq6vZgzFA4OlSadgGabyetU/BAzztdXFx8ac+nZ6eFh9ZDLm4uFgF0XvtTDpHEYGtsvXf1kou1aoskc60DVrNabGTk5Oip6fnS1rFsr6+/sBxg9HMuYgXv8gRzpQDz/xYpctEHFpWahuNR1/YYzIx0mLZdopqXJDRPPHnDbz26d5b8GiW7hvSPyl4TCQAGK0HgBx4op2o8ZYZfHovvmaCRPe0rQibkyDStr1DUce1HHhKp4wJSWDsZA2rYnrO/eLvNJZlC5EAns8PDQ19pbVFOUGgLNU6EwJcUJI7o6Oj36ym2wa81MrA492qbekyaUOECkfweHxHR0dL90nAK7UUPE6ytbX1pgG3xXq4piwFz1aJsQKwvUqOQ1sR9nRoCt7u7u7T8PDw12CcKAav3FLwyq1twRNpwEbjOMLHq2J9t7m5+Qg+od6/FiUhKrRiVo8HBwdNnU29urqqWwD5+/80oFjUxNekR9rUeNjzk6al1FQ/asOBctbZ2fldM/e2A/BeO85godN24P3T3h1gOgyEYRQNyA7fcrO0J/0vDS2gUh04OIMq4Go6gQ9uhwfCQ3ggPIQHwkN4CM+k1BImpYzoLWFEb8lsKGZD1wwlYyh5jt9Pw2MavuM8//b58BhnVfaT2PP4zoUDF4kaqqWaqq1x1NrYiu6yP2v870vwLTVVW1d06XjT87c/f908rlct8KnaqaFaqqmxvXoATDd9iVUsk/wAAAAASUVORK5CYII=");background-position:50%;background-repeat:no-repeat;background-size:158px 58px;height:100%;left:0;position:absolute;top:0;width:100%}</style><style>.adfit__html-banner{max-height:inherit;overflow:hidden;position:relative}.adfit__html-banner__inner{border:0;display:block;margin:0 auto;overflow:hidden}.adfit__html-banner--responsive>.adfit__html-banner__inner{height:0}.adfit__html-banner--responsive>.adfit__html-banner__inner iframe{height:100%;left:0;max-height:inherit;position:absolute;top:0;width:100%}</style><meta http-equiv="origin-trial" content="AzoawhTRDevLR66Y6MROu167EDncFPBvcKOaQispTo9ouEt5LvcBjnRFqiAByRT+2cDHG1Yj4dXwpLeIhc98/gIAAACFeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjYxMjk5MTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A6+nc62kbJgC46ypOwRsNW6RkDn2x7tgRh0wp7jb3DtFF7oEhu1hhm4rdZHZ6zXvnKZLlYcBlQUImC4d3kKihAcAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjYxMjk5MTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A/9La288e7MDEU2ifusFnMg1C2Ij6uoa/Z/ylwJIXSsWfK37oESIPbxbt4IU86OGqDEPnNVruUiMjfKo65H/CQwAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjYxMjk5MTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="AzoawhTRDevLR66Y6MROu167EDncFPBvcKOaQispTo9ouEt5LvcBjnRFqiAByRT+2cDHG1Yj4dXwpLeIhc98/gIAAACFeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjYxMjk5MTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A6+nc62kbJgC46ypOwRsNW6RkDn2x7tgRh0wp7jb3DtFF7oEhu1hhm4rdZHZ6zXvnKZLlYcBlQUImC4d3kKihAcAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjYxMjk5MTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A/9La288e7MDEU2ifusFnMg1C2Ij6uoa/Z/ylwJIXSsWfK37oESIPbxbt4IU86OGqDEPnNVruUiMjfKo65H/CQwAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjYxMjk5MTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="AzoawhTRDevLR66Y6MROu167EDncFPBvcKOaQispTo9ouEt5LvcBjnRFqiAByRT+2cDHG1Yj4dXwpLeIhc98/gIAAACFeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjYxMjk5MTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A6+nc62kbJgC46ypOwRsNW6RkDn2x7tgRh0wp7jb3DtFF7oEhu1hhm4rdZHZ6zXvnKZLlYcBlQUImC4d3kKihAcAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjYxMjk5MTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A/9La288e7MDEU2ifusFnMg1C2Ij6uoa/Z/ylwJIXSsWfK37oESIPbxbt4IU86OGqDEPnNVruUiMjfKo65H/CQwAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjYxMjk5MTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="AzoawhTRDevLR66Y6MROu167EDncFPBvcKOaQispTo9ouEt5LvcBjnRFqiAByRT+2cDHG1Yj4dXwpLeIhc98/gIAAACFeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjYxMjk5MTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A6+nc62kbJgC46ypOwRsNW6RkDn2x7tgRh0wp7jb3DtFF7oEhu1hhm4rdZHZ6zXvnKZLlYcBlQUImC4d3kKihAcAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjYxMjk5MTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A/9La288e7MDEU2ifusFnMg1C2Ij6uoa/Z/ylwJIXSsWfK37oESIPbxbt4IU86OGqDEPnNVruUiMjfKo65H/CQwAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjYxMjk5MTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="AzoawhTRDevLR66Y6MROu167EDncFPBvcKOaQispTo9ouEt5LvcBjnRFqiAByRT+2cDHG1Yj4dXwpLeIhc98/gIAAACFeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjYxMjk5MTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A6+nc62kbJgC46ypOwRsNW6RkDn2x7tgRh0wp7jb3DtFF7oEhu1hhm4rdZHZ6zXvnKZLlYcBlQUImC4d3kKihAcAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjYxMjk5MTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A/9La288e7MDEU2ifusFnMg1C2Ij6uoa/Z/ylwJIXSsWfK37oESIPbxbt4IU86OGqDEPnNVruUiMjfKo65H/CQwAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjYxMjk5MTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="AzoawhTRDevLR66Y6MROu167EDncFPBvcKOaQispTo9ouEt5LvcBjnRFqiAByRT+2cDHG1Yj4dXwpLeIhc98/gIAAACFeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjYxMjk5MTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A6+nc62kbJgC46ypOwRsNW6RkDn2x7tgRh0wp7jb3DtFF7oEhu1hhm4rdZHZ6zXvnKZLlYcBlQUImC4d3kKihAcAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjYxMjk5MTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A/9La288e7MDEU2ifusFnMg1C2Ij6uoa/Z/ylwJIXSsWfK37oESIPbxbt4IU86OGqDEPnNVruUiMjfKo65H/CQwAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjYxMjk5MTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><link rel="preload" href="./update_anomaly_files/f(10).txt" as="script"><script src="./update_anomaly_files/f(10).txt"></script><link rel="preload" href="./update_anomaly_files/f(11).txt" as="script"><script src="./update_anomaly_files/f(11).txt"></script><link type="text/css" rel="stylesheet" charset="UTF-8" href="./update_anomaly_files/translateelement.css"><script charset="UTF-8" src="./update_anomaly_files/m=el_main"></script><meta http-equiv="origin-trial" content="AzoawhTRDevLR66Y6MROu167EDncFPBvcKOaQispTo9ouEt5LvcBjnRFqiAByRT+2cDHG1Yj4dXwpLeIhc98/gIAAACFeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjYxMjk5MTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A6+nc62kbJgC46ypOwRsNW6RkDn2x7tgRh0wp7jb3DtFF7oEhu1hhm4rdZHZ6zXvnKZLlYcBlQUImC4d3kKihAcAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjYxMjk5MTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A/9La288e7MDEU2ifusFnMg1C2Ij6uoa/Z/ylwJIXSsWfK37oESIPbxbt4IU86OGqDEPnNVruUiMjfKo65H/CQwAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjYxMjk5MTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><style>#DragSchLayer{display:block;position:absolute;z-index:1000;width:61px;height:31px;margin:-30px 0px 0px -5px;background:url(//search1.daumcdn.net/search/statics/common/pi/btn_drag_rect.png);cursor:pointer}             @media             only screen and (-webkit-min-device-pixel-ratio: 1.5),             only screen and (min-device-pixel-ratio: 1.5),             only screen and (min-resolution: 1.5dppx) {             #DragSchLayer{background-image:url(//search1.daumcdn.net/search/statics/common/pi/r2/btn_drag_rect.png);background-size:61px 31px}}            </style><link rel="preload" href="./update_anomaly_files/f(10).txt" as="script"><script type="text/javascript" src="./update_anomaly_files/f(10).txt"></script><link rel="preload" href="./update_anomaly_files/f(11).txt" as="script"><script type="text/javascript" src="./update_anomaly_files/f(11).txt"></script><link rel="preload" href="./update_anomaly_files/f(10).txt" as="script"><script type="text/javascript" src="./update_anomaly_files/f(10).txt"></script><link rel="preload" href="./update_anomaly_files/f(11).txt" as="script"><script type="text/javascript" src="./update_anomaly_files/f(11).txt"></script></head>
+	<body id="tt-body-page" aria-hidden="false" style="position: relative; min-height: 100%; top: 0px; padding: 0px;">
+		<script src="./update_anomaly_files/preload.min.js"></script>
+		<script>
+	(function() {
+		if (!window.T) {
+			window.T = {}
+		}
+		window.T.config = {"TOP_SSL_URL":"https:\/\/www.tistory.com","PREVIEW":false,"ROLE":"guest","PREV_PAGE":"\/257","NEXT_PAGE":"\/255","BLOG":{"isDormancy":false,"title":"\ud3c9\ubc94\ud55c \uc9c1\uc7a5\uc778\uc758 \uacf5\ubd80 \uc815\ub9ac"},"NEED_COMMENT_LOGIN":false,"COMMENT_LOGIN_CONFIRM_MESSAGE":"","LOGIN_URL":"https:\/\/www.tistory.com\/auth\/login\/?redirectUrl=http%3A%2F%2Fdeveloper-talk.tistory.com%2F256","DEFAULT_URL":"https:\/\/developer-talk.tistory.com","USER":{"name":null,"homepage":null},"ROLE_GROUP":"visitor","SUBSCRIPTION":{"status":"none","isConnected":false,"isProcessing":false,"isPending":false,"isWait":false,"isNone":true},"IS_LOGIN":false,"HAS_BLOG":false,"TOP_URL":"https:\/\/www.tistory.com","JOIN_URL":"https:\/\/www.tistory.com\/member\/join"};
+		window.appInfo = {"domain":"tistory.com","topUrl":"https:\/\/www.tistory.com","loginUrl":"https:\/\/www.tistory.com\/auth\/login","logoutUrl":"https:\/\/www.tistory.com\/auth\/logout"};
+
+        window.initData = {};
+        
+	})();
+</script>
+
+<script src="./update_anomaly_files/common.js"></script>
+<div style="margin:0; padding:0; border:none; background:none; float:none; clear:none; z-index:0"></div>
+			<div id="wrapper" style="padding-bottom: 0px;" class="loaded">
+				<!-- 블로그 로딩 코드 start -->
+				
+					<style>
+						#waiting {
+							width: 100%;
+							height: 100%;
+							top: 0;
+							left: 0;
+							position: fixed;
+							display: flex;
+							background: white;
+							z-index: 999;
+							opacity: 0.7;
+						}
+						#waiting > img {
+							display: flex;
+							width: fit-content;
+							height: fit-content;
+							margin: auto;
+							box-shadow: none;
+						}
+
+						#wrapper {
+							overflow: hidden !important;
+							height: calc(100vh + 1px) !important;
+						}
+
+						#wrapper.loaded {
+							overflow: unset !important;
+							height: unset !important;
+						}
+					</style>
+					<div id="waiting" style="display: none;">
+						
+						
+							<img src="./update_anomaly_files/loading.gif" class="loading-image" alt="">
+						
+					</div>
+					<script>
+						var doneFlag = false;
+						var loadingTimer = 0;
+						var wrapperObserver = new MutationObserver(function(mutations) {
+							$('#wrapper').css('height','');
+						});
+						var config = {
+							attributes: true,
+							childList: true,
+							characterData: true
+						};
+						var wrapper = document.getElementById('wrapper');
+						
+						wrapperObserver.observe(wrapper, config);
+						
+						function afterLoaded() {
+							if(!doneFlag) {
+								wrapperObserver.disconnect();
+								$('#wrapper').addClass('loaded');
+								$('#wrapper').off('scroll touchmove mousewheel');
+								$("#waiting").fadeOut();
+								setTimeout(function() {
+									doneFlag = true;
+									smoothScroll();
+								}, 500);
+								/*
+								var allIns = $('ins');
+								for(var i=0; i < allIns.length; i++) {
+									if((allIns.eq(i).height() == 0) && allIns.eq(i).parent().height() != 0) {
+										if('^HTML^BODY^'.indexOf(allIns.eq(i).parent().prop('tagName')) == -1) {
+											allIns.eq(i).parent().css('display','none');
+										}
+									}
+								}
+								*/
+							}
+						}
+						
+						$('#wrapper').on('scroll touchmove mousewheel', function(event) {
+							event.preventDefault();
+							event.stopPropagation();
+							return false;
+						});
+
+						setTimeout(function() {
+							afterLoaded();
+						}, 5000);
+
+						$(function() {
+							$("#waiting").show();
+							loadingTimer = setTimeout(function(){
+								afterLoaded();
+								loadingTimer = 0;
+							}, 3000);
+						});
+
+						$(window).on('load', function() {
+							if(loadingTimer != 0) {
+								clearTimeout(loadingTimer);
+								afterLoaded();
+							}
+						});
+					</script>
+				
+				<!-- 블로그 로딩 코드 end -->
+				<div class="top-button" style="top: 10px; position: fixed;">
+					<div class="profile">
+						<button type="button"><img src="./update_anomaly_files/default_L.png" alt="블로그 이미지"></button>
+						<nav>
+							<ul>
+								<li><a href="https://developer-talk.tistory.com/manage">관리</a></li>
+								<li><a href="https://developer-talk.tistory.com/manage/entry/post">글쓰기</a></li>
+								<li class="login"><a href="https://developer-talk.tistory.com/256#">로그인</a></li>
+								<li class="logout" style="display: none;"><a href="https://developer-talk.tistory.com/256#">로그아웃</a></li>
+							</ul>
+						</nav>
+					</div>
+					<div class="menu">
+						<button type="button"></button>
+					</div>
+				</div>
+				<header style="position: fixed; top: 0px; left: 0px; z-index: 119; height: 55.8359px; background: rgb(255, 255, 255); opacity: 0.9;">
+					<div class="inner">
+						<p>
+							<a class="title" href="https://developer-talk.tistory.com/256#">[데이터베이스]이상 현상(Anomaly)</a>
+						</p>
+						<nav id="blog-menu" style="display: none;">
+							<ul>		<li class="t_menu_home first">
+			<a href="https://developer-talk.tistory.com/">홈</a>
+		</li>
+				<li class="t_menu_category">
+			<a href="https://developer-talk.tistory.com/category/%EA%B0%9C%EB%B0%9C%20%EC%96%B8%EC%96%B4/C%23">C#</a>
+		</li>
+				<li class="t_menu_category">
+			<a href="https://developer-talk.tistory.com/category/JavaScript">JavaScript</a>
+		</li>
+				<li class="t_menu_category">
+			<a href="https://developer-talk.tistory.com/category/TypeScript">TypeScript</a>
+		</li>
+				<li class="t_menu_category">
+			<a href="https://developer-talk.tistory.com/category/React">React</a>
+		</li>
+				<li class="t_menu_category">
+			<a href="https://developer-talk.tistory.com/category/DataBase">DataBase</a>
+		</li>
+				<li class="t_menu_category last">
+			<a href="https://developer-talk.tistory.com/category/%ED%8B%B0%EC%8A%A4%ED%86%A0%EB%A6%AC/%ED%8B%B0%EC%8A%A4%ED%86%A0%EB%A6%AC%20%EA%B0%80%EC%9D%B4%EB%93%9C">티스토리 가이드</a>
+		</li>
+		</ul>
+						</nav>
+					</div>
+				</header>
+				<section style="z-index: 110; height: auto !important;">
+					<div class="progress-bar-ani">
+						<div class="progress-bar-horizontal" style="width: 89.0151%; opacity: 0.745076; top: 55.8359px;"></div>
+						<div class="progress-bar-vertical" style="display:none;"></div>
+						<div class="progress-bar-etc-horizontal" style="width: 0%; opacity: 0.169285;"></div>
+						<div class="progress-bar-etc-vertical" style="display:none;"></div>
+					</div>
+					<div class="floating-toc-new" style="opacity: 1; width: fit-content; height: 20px; margin-right: 0px; margin-left: 0px; transform: scale(0.8); right: -8px; top: 65.8281px;"><div id="toc-title"><p>목차<span id="toggle" class="close" style="padding-left:5px;"></span></p></div><div id="toc-body" style="display: none;"><ul id="toc" style=""><li><a href="https://developer-talk.tistory.com/256#%EC%9D%B4%EC%83%81_%ED%98%84%EC%83%81(Anomaly)%EC%9D%B4%EB%9E%80?" class="floating-toc-title-ani selected">이상 현상(Anomaly)이란?</a></li><li><a href="https://developer-talk.tistory.com/256#%EC%82%BD%EC%9E%85_%EC%9D%B4%EC%83%81(Insertion_anomaly)">삽입 이상(Insertion anomaly)</a></li><li><a href="https://developer-talk.tistory.com/256#%EC%82%AD%EC%A0%9C_%EC%9D%B4%EC%83%81(Deletion_anomaly)">삭제 이상(Deletion anomaly)</a></li><li><a href="https://developer-talk.tistory.com/256#%EC%97%85%EB%8D%B0%EC%9D%B4%ED%8A%B8_%EC%9D%B4%EC%83%81(Update_anomaly)">업데이트 이상(Update anomaly)</a><ul></ul></li></ul></div></div>
+					<div class="content-wrapper" style="height: auto !important; margin-top: 127px;">
+						<aside class="sidebar" style="">
+							<div class="inner" style="height: auto !important; min-height: 0px !important;">
+								<!-- 여백 만들기 -->
+								<div id="aside-top-blank" style="width: 100%; height: 65.8359px;"></div>
+								                        <div class="revenue_unit_wrap ">
+               <div class="revenue_unit_item adsense  responsive" style="background-image: none;">
+                    <div class="revenue_unit_info">반응형</div>
+                    <script async="" src="./update_anomaly_files/f(9).txt"></script>
+                    <ins class="adsbygoogle" style="display: block; height: 600px;" data-ad-host="ca-host-pub-9691043933427338" data-ad-client="ca-pub-6235017393305409" data-ad-format="auto" data-adsbygoogle-status="done" data-ad-status="filled"><ins id="aswift_1_expand" tabindex="0" title="Advertisement" aria-label="Advertisement" style="border: none; height: 600px; width: 300px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-table;"><ins id="aswift_1_anchor" style="border: none; height: 600px; width: 300px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: block; overflow: visible;"><iframe id="aswift_1" name="aswift_1" style="left:0;position:absolute;top:0;border:0;width:300px;height:600px;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="300" height="600" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" src="./update_anomaly_files/ads.html" data-google-container-id="a!2" data-google-query-id="CMjXyfSEmPkCFQWH6QUdMnkBXA" data-load-complete="true"></iframe></ins></ins></ins>
+                    <script>(adsbygoogle = window.adsbygoogle || []).push({}); </script>
+               </div>
+            </div>
+										<!-- 검색바 -->
+										<div class="search">
+											<input type="text" id="search_default" value="" placeholder="검색 내용을 입력하세요." onkeypress="if (event.keyCode == 13) { search_default() }">
+											<button type="submit" onclick="search_default()">검색</button>
+										</div>
+									
+										<!-- 카테고리 -->
+										<div class="category">
+											<h2><a href="https://developer-talk.tistory.com/category">카테고리 <span class="c_cnt">(498)</span></a></h2>
+											<ul class="tt_category">
+	<li class="">
+		<a class="link_tit" href="https://developer-talk.tistory.com/category">
+			분류 전체보기							<span class="c_cnt">(498)</span>
+			
+							<img src="./update_anomaly_files/new_ico_5.gif" alt="N" style="vertical-align:middle;padding-left:2px;">
+					</a>
+
+				<ul class="category_list">
+							<li class="">
+					<a class="link_item" href="https://developer-talk.tistory.com/category/%EA%B0%9C%EB%B0%9C%20%EC%96%B8%EC%96%B4">
+						개발 언어													<span class="c_cnt">(182)</span>
+						
+													<img src="./update_anomaly_files/new_ico_5.gif" alt="N" style="vertical-align:middle;padding-left:2px;">
+											</a>
+
+										<ul class="sub_category_list">
+													<li class="">
+								<a class="link_sub_item" href="https://developer-talk.tistory.com/category/%EA%B0%9C%EB%B0%9C%20%EC%96%B8%EC%96%B4/C%23">
+									C#
+																			<span class="c_cnt">(124)</span>
+									
+																			<img src="./update_anomaly_files/new_ico_5.gif" alt="N" style="vertical-align:middle;padding-left:2px;">
+																	</a>
+							</li>
+													<li class="">
+								<a class="link_sub_item" href="https://developer-talk.tistory.com/category/%EA%B0%9C%EB%B0%9C%20%EC%96%B8%EC%96%B4/Java">
+									Java
+																			<span class="c_cnt">(58)</span>
+									
+																	</a>
+							</li>
+											</ul>
+					
+				</li>
+							<li class="">
+					<a class="link_item" href="https://developer-talk.tistory.com/category/JavaScript">
+						JavaScript													<span class="c_cnt">(126)</span>
+						
+											</a>
+
+										<ul class="sub_category_list">
+													<li class="">
+								<a class="link_sub_item" href="https://developer-talk.tistory.com/category/JavaScript/JavaScript%20%EB%AC%B8%EB%B2%95">
+									JavaScript 문법
+																			<span class="c_cnt">(60)</span>
+									
+																	</a>
+							</li>
+													<li class="">
+								<a class="link_sub_item" href="https://developer-talk.tistory.com/category/JavaScript/%EA%B8%B0%EC%B4%88">
+									기초
+																			<span class="c_cnt">(3)</span>
+									
+																	</a>
+							</li>
+													<li class="">
+								<a class="link_sub_item" href="https://developer-talk.tistory.com/category/JavaScript/%EB%AC%B8%EC%9E%90%EC%97%B4">
+									문자열
+																			<span class="c_cnt">(0)</span>
+									
+																	</a>
+							</li>
+													<li class="">
+								<a class="link_sub_item" href="https://developer-talk.tistory.com/category/JavaScript/%EB%B0%B0%EC%97%B4">
+									배열
+																			<span class="c_cnt">(16)</span>
+									
+																	</a>
+							</li>
+													<li class="">
+								<a class="link_sub_item" href="https://developer-talk.tistory.com/category/JavaScript/%EA%B0%9D%EC%B2%B4">
+									객체
+																			<span class="c_cnt">(7)</span>
+									
+																	</a>
+							</li>
+													<li class="">
+								<a class="link_sub_item" href="https://developer-talk.tistory.com/category/JavaScript/%ED%95%A8%EC%88%98">
+									함수
+																			<span class="c_cnt">(24)</span>
+									
+																	</a>
+							</li>
+													<li class="">
+								<a class="link_sub_item" href="https://developer-talk.tistory.com/category/JavaScript/Tip">
+									Tip
+																			<span class="c_cnt">(6)</span>
+									
+																	</a>
+							</li>
+													<li class="">
+								<a class="link_sub_item" href="https://developer-talk.tistory.com/category/JavaScript/%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC">
+									라이브러리
+																			<span class="c_cnt">(2)</span>
+									
+																	</a>
+							</li>
+													<li class="">
+								<a class="link_sub_item" href="https://developer-talk.tistory.com/category/JavaScript/%ED%95%A8%EC%88%98%ED%98%95%20%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D">
+									함수형 프로그래밍
+																			<span class="c_cnt">(8)</span>
+									
+																	</a>
+							</li>
+											</ul>
+					
+				</li>
+							<li class="">
+					<a class="link_item" href="https://developer-talk.tistory.com/category/TypeScript">
+						TypeScript													<span class="c_cnt">(21)</span>
+						
+											</a>
+
+					
+				</li>
+							<li class="">
+					<a class="link_item" href="https://developer-talk.tistory.com/category/DataBase">
+						DataBase													<span class="c_cnt">(32)</span>
+						
+											</a>
+
+										<ul class="sub_category_list">
+													<li class="">
+								<a class="link_sub_item" href="https://developer-talk.tistory.com/category/DataBase/Oracle">
+									Oracle
+																			<span class="c_cnt">(25)</span>
+									
+																	</a>
+							</li>
+													<li class="">
+								<a class="link_sub_item" href="https://developer-talk.tistory.com/category/DataBase/MsSQL">
+									MsSQL
+																			<span class="c_cnt">(2)</span>
+									
+																	</a>
+							</li>
+													<li class="">
+								<a class="link_sub_item" href="https://developer-talk.tistory.com/category/DataBase/DataBase%20Tool">
+									DataBase Tool
+																			<span class="c_cnt">(1)</span>
+									
+																	</a>
+							</li>
+													<li class="">
+								<a class="link_sub_item" href="https://developer-talk.tistory.com/category/DataBase/%EC%9D%B4%EB%A1%A0%26SQL">
+									이론&amp;SQL
+																			<span class="c_cnt">(4)</span>
+									
+																	</a>
+							</li>
+											</ul>
+					
+				</li>
+							<li class="">
+					<a class="link_item" href="https://developer-talk.tistory.com/category/React">
+						React													<span class="c_cnt">(45)</span>
+						
+											</a>
+
+										<ul class="sub_category_list">
+													<li class="">
+								<a class="link_sub_item" href="https://developer-talk.tistory.com/category/React/React%20%EB%AC%B8%EB%B2%95">
+									React 문법
+																			<span class="c_cnt">(32)</span>
+									
+																	</a>
+							</li>
+													<li class="">
+								<a class="link_sub_item" href="https://developer-talk.tistory.com/category/React/%EC%9C%A0%EC%9A%A9%ED%95%9C%20NPM">
+									유용한 NPM
+																			<span class="c_cnt">(6)</span>
+									
+																	</a>
+							</li>
+													<li class="">
+								<a class="link_sub_item" href="https://developer-talk.tistory.com/category/React/Electron">
+									Electron
+																			<span class="c_cnt">(2)</span>
+									
+																	</a>
+							</li>
+													<li class="">
+								<a class="link_sub_item" href="https://developer-talk.tistory.com/category/React/%EA%B8%B0%ED%83%80">
+									기타
+																			<span class="c_cnt">(5)</span>
+									
+																	</a>
+							</li>
+											</ul>
+					
+				</li>
+							<li class="">
+					<a class="link_item" href="https://developer-talk.tistory.com/category/Svelte">
+						Svelte													<span class="c_cnt">(8)</span>
+						
+											</a>
+
+					
+				</li>
+							<li class="">
+					<a class="link_item" href="https://developer-talk.tistory.com/category/GitHub">
+						GitHub													<span class="c_cnt">(1)</span>
+						
+											</a>
+
+					
+				</li>
+							<li class="">
+					<a class="link_item" href="https://developer-talk.tistory.com/category/Linux">
+						Linux													<span class="c_cnt">(2)</span>
+						
+											</a>
+
+					
+				</li>
+							<li class="">
+					<a class="link_item" href="https://developer-talk.tistory.com/category/Web">
+						Web													<span class="c_cnt">(3)</span>
+						
+											</a>
+
+					
+				</li>
+							<li class="">
+					<a class="link_item" href="https://developer-talk.tistory.com/category/%EA%B8%B0%ED%83%80">
+						기타													<span class="c_cnt">(17)</span>
+						
+											</a>
+
+					
+				</li>
+							<li class="">
+					<a class="link_item" href="https://developer-talk.tistory.com/category/%EC%9E%90%EA%B2%A9%EC%A6%9D%20%EA%B3%B5%EB%B6%80">
+						자격증 공부													<span class="c_cnt">(7)</span>
+						
+											</a>
+
+										<ul class="sub_category_list">
+													<li class="">
+								<a class="link_sub_item" href="https://developer-talk.tistory.com/category/%EC%9E%90%EA%B2%A9%EC%A6%9D%20%EA%B3%B5%EB%B6%80/%EC%A0%95%EB%B3%B4%EB%B3%B4%EC%95%88%EA%B8%B0%EC%82%AC">
+									정보보안기사
+																			<span class="c_cnt">(7)</span>
+									
+																	</a>
+							</li>
+											</ul>
+					
+				</li>
+							<li class="">
+					<a class="link_item" href="https://developer-talk.tistory.com/category/%ED%8B%B0%EC%8A%A4%ED%86%A0%EB%A6%AC">
+						티스토리													<span class="c_cnt">(26)</span>
+						
+											</a>
+
+										<ul class="sub_category_list">
+													<li class="">
+								<a class="link_sub_item" href="https://developer-talk.tistory.com/category/%ED%8B%B0%EC%8A%A4%ED%86%A0%EB%A6%AC/%ED%8B%B0%EC%8A%A4%ED%86%A0%EB%A6%AC%20%EA%B0%80%EC%9D%B4%EB%93%9C">
+									티스토리 가이드
+																			<span class="c_cnt">(14)</span>
+									
+																	</a>
+							</li>
+													<li class="">
+								<a class="link_sub_item" href="https://developer-talk.tistory.com/category/%ED%8B%B0%EC%8A%A4%ED%86%A0%EB%A6%AC/%EB%B8%94%EB%A1%9C%EA%B7%B8%20%EA%B2%B0%EC%82%B0">
+									블로그 결산
+																			<span class="c_cnt">(11)</span>
+									
+																	</a>
+							</li>
+													<li class="">
+								<a class="link_sub_item" href="https://developer-talk.tistory.com/category/%ED%8B%B0%EC%8A%A4%ED%86%A0%EB%A6%AC/%ED%8B%B0%EC%8A%A4%ED%86%A0%EB%A6%AC%20%EC%8A%A4%ED%82%A8%20%EC%A0%9C%EC%9E%91">
+									티스토리 스킨 제작
+																			<span class="c_cnt">(1)</span>
+									
+																	</a>
+							</li>
+											</ul>
+					
+				</li>
+							<li class="">
+					<a class="link_item" href="https://developer-talk.tistory.com/category/%EA%B3%BC%ED%95%99">
+						과학													<span class="c_cnt">(1)</span>
+						
+											</a>
+
+					
+				</li>
+							<li class="">
+					<a class="link_item" href="https://developer-talk.tistory.com/category/%EA%B2%BD%EC%A0%9C">
+						경제													<span class="c_cnt">(9)</span>
+						
+											</a>
+
+					
+				</li>
+							<li class="">
+					<a class="link_item" href="https://developer-talk.tistory.com/category/%EC%B1%85%20%EB%A6%AC%EB%B7%B0">
+						책 리뷰													<span class="c_cnt">(5)</span>
+						
+											</a>
+
+					
+				</li>
+							<li class="">
+					<a class="link_item" href="https://developer-talk.tistory.com/category/%EC%9D%BC%EC%83%81">
+						일상													<span class="c_cnt">(13)</span>
+						
+											</a>
+
+					
+				</li>
+					</ul>
+			</li>
+</ul>
+										</div>
+									                        <div class="revenue_unit_wrap ">
+                <div class="revenue_unit_item adfit">
+                    <div class="revenue_unit_info">300x250</div>
+                    <ins class="kakao_ad_area" style="display: inline-block; text-decoration: none; height: 250px; max-height: inherit; min-height: 250px; min-width: 300px; width: 300px;" data-ad-unit="DAN-c3obrkq2RQdpamUk" data-ad-width="300" data-ad-height="250px" id="kakao_ad_dfYxXY"><div data-ad-creative-wrap="outer" class="adfit__html-banner" style="min-width: 300px; min-height: 250px;"><div data-ad-creative-wrap="inner" class="adfit__html-banner__inner" style="height: 250px;"><div><iframe src="./update_anomaly_files/aee8947140c34030461f13fdaff6aabf4b5563f6.html" width="100%" style="position: absolute; top: 0px; left: 0px; display: block; border: none; height: 250px; width: 300px; min-width: 300px; min-height: 250px; overflow: hidden; padding: 0px; margin: 0px auto;" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" name="%5B%7B%22usePrefersColorScheme%22%3A%22N%22%2C%22usePreferColorScheme%22%3A%22N%22%2C%22frameId%22%3A%223f4d780a-05fd-491b-ae66-28cd9850b919%22%2C%22frameName%22%3A%223f4d780a-05fd-491b-ae66-28cd9850b919%22%2C%22title%22%3A%22%ED%94%84%EB%9D%BC%EC%9D%B4%EB%B9%97%ED%95%9C%20%EB%8B%A8%EB%8F%85%20%EB%A3%B8%EC%97%90%EC%84%9C%20%EC%9D%B8%EC%83%9D%2012%EC%BB%B7%22%2C%22mainImage%22%3A%7B%22url%22%3A%22https%3A%2F%2Ft1.daumcdn.net%2Fb2%2Fcreative%2F449821%2Fa5fa9b6b4263feb6d9841b9b02b97bc1.jpg%22%2C%22width%22%3A500%2C%22height%22%3A500%7D%2C%22profileIcon%22%3A%7B%22url%22%3A%22https%3A%2F%2Fimg1.daumcdn.net%2Fthumb%2FS300x300%2F%3Fscode%3Db2_01%26x-twg-thumb-fname%3Dhttp%253A%252F%252Ft1.daumcdn.net%252Fb2%252Fcreative%252F449821%252Fb85a830e89a9727df8a207e35c4e8208.jpeg%26TWGServiceId%3Db2%26Expires%3D1658894400%26Signature%3DlFaTjhcl6tKNUATG2m%252BML45DTM0%253D%22%2C%22width%22%3A300%2C%22height%22%3A300%7D%2C%22profileName%22%3A%22%EB%8D%B0%EC%9D%B4%EB%B9%84%EC%8A%A4%20%EC%85%80%ED%94%BC%EC%83%B5%22%2C%22adInfoIcon%22%3A%7B%22url%22%3A%22https%3A%2F%2Ft1.daumcdn.net%2Fbiz%2Fui%2Fad%2FADmark%2Fi_mark_200803.png%22%2C%22width%22%3A15%2C%22height%22%3A15%7D%2C%22adInfoUrl%22%3A%22https%3A%2F%2Finfo.ad.daum.net%2Foptout.do%22%2C%22landingUrl%22%3A%22https%3A%2F%2Ftr.ad.daum.net%2Fclk%3Fwa%3DYgMLD5iLquvZ4wdw7AYENA%26enc%3DMOg62Oz0ouiZX7A-1D4KBRX2MGtuce2ZTnWyOubRJmzwKmM-5nQhq3VZIKQRD-lwFeLh0SnG5dvHEZRtDeVz8JXhGlN12BAl1U4hmsffy709f3Kb_tsoV3jb85UePEXuVvfeZ-WtMxndDIt3qK4EX5PUUKQwSIrbK8keP41W2Br4kjuVmqfppHIQ3UfIydTEeIKmZJz9vcuMpyf03v31D3zDAJdxi5cFrte-ZLo_AVxWyXmQp0UNEkSBXC0zFt2S-RyDXbKaj9Gm7ZrVzUDtUMdjYvHUBcEV6K2_8DVU-K4LTI--ooNP_0w3D5U1kQIb3edP3hnnSCPVz29HTMaEpzkBNnrujSrsZVbB8qh2QGpFvgAa_QeVUNR4JtTcdLc81yg_lNhv-ne70reOkwh69Su7wE5iAMg1qTEvykKEHU0%26signature%3Dff18dd506d99df0907911b1363804a6b%26lc%3D1%22%2C%22useAdInfoIcon%22%3Atrue%2C%22useAdInfoUrl%22%3Atrue%2C%22events%22%3A%5B%7B%22type%22%3A%22viewable%22%2C%22url%22%3A%22https%3A%2F%2Ftr.ad.daum.net%2Fvimp%3Fwa%3DYgMLD5iLquvZ4wdw7AYENA%26enc%3DMOg62Oz0ouiZX7A-1D4KBRX2MGtuce2ZTnWyOubRJmzwKmM-5nQhq3VZIKQRD-lwFeLh0SnG5dvHEZRtDeVz8JXhGlN12BAl1U4hmsffy709f3Kb_tsoV3jb85UePEXuVvfeZ-WtMxndDIt3qK4EX5PUUKQwSIrbK8keP41W2Br4kjuVmqfppHIQ3UfIydTEeIKmZJz9vcuMpyf03v31D3zDAJdxi5cFrte-ZLo_AVxWyXmQp0UNEkSBXC0zFt2SskyMVsAga35spz5zOhyaQxkO6D-aG1OmMzUvIjvSIfPguUdvA7o_UGNp0YgcaDaY_9-iD5ZxPNuYgAmdJGo5QfDazW9YeHCRrLqfJCg0FnM%26signature%3D03889ccb2d03ee8b5f96273631fb47f7%26lc%3D1%22%7D%2C%7B%22type%22%3A%22hide%22%2C%22url%22%3A%22https%3A%2F%2Ftr.ad.daum.net%2Fac%3Fwa%3DYgMLD5iLquvZ4wdw7AYENA%26enc%3DMOg62Oz0ouiZX7A-1D4KBRX2MGtuce2ZTnWyOubRJmzwKmM-5nQhq3VZIKQRD-lwFeLh0SnG5dvHEZRtDeVz8JXhGlN12BAl1U4hmsffy709f3Kb_tsoV3jb85UePEXuVvfeZ-WtMxndDIt3qK4EX5PUUKQwSIrbK8keP41W2Br4kjuVmqfppHIQ3UfIydTEeIKmZJz9vcuMpyf03v31D3zDAJdxi5cFrte-ZLo_AVxWyXmQp0UNEkSBXC0zFt2SskyMVsAga35spz5zOhyaQxkO6D-aG1OmMzUvIjvSIfPguUdvA7o_UGNp0YgcaDaY_9-iD5ZxPNuYgAmdJGo5Qby8eZQobBoM_n62GH0kIJU%26signature%3Da28a5b25ed1511c781eac41fdfb300fc%26lc%3D1%22%7D%5D%2C%22dspId%22%3A%22MOMENT%22%2C%22altText%22%3A%22%EA%B4%91%EA%B3%A0%20%EB%8B%A8%EB%8F%85%20%EB%A3%B8%EC%97%90%EC%84%9C%20%ED%94%84%EB%9D%BC%EC%9D%B4%EB%B9%97%ED%95%98%EA%B2%8C%20%EC%B4%AC%EC%98%81%20%ED%95%A0%20%EC%88%98%20%EC%9E%88%EB%8A%94%20%EC%85%80%ED%94%84%20%EC%82%AC%EC%A7%84%EA%B4%80%22%2C%22nasTemplateSeq%22%3A49%2C%22type%22%3A%22native%22%7D%5D" id="3f4d780a-05fd-491b-ae66-28cd9850b919"></iframe></div></div></div>
+                    </ins> 
+                    <script src="./update_anomaly_files/ba.min.js" async=""></script>
+                </div>
+            </div>
+										<!-- 최근 글 -->
+										<div class="recent content-item">
+											<h2>최근 글</h2>
+											<ul>
+												
+												
+													
+													<li>
+														<a href="https://developer-talk.tistory.com/589">
+															<span class="thum">
+																
+																	<img src="./update_anomaly_files/blank.png" alt="" data-src="//i1.daumcdn.net/thumb/C70x70/?fname=https://img1.daumcdn.net/thumb/R750x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbpXNsv%2FbtrH32hnDx5%2FuCNiMYkZveZadl4jXROtVk%2Fimg.png" class="lazyload" style="width: 70px; height: 70px; opacity: 0;">
+																
+															</span>
+															<span class="title">[C#]LINQ 특정 조건을 만족하는지 체크하는 방법 - All, Any 메서드</span>
+															<span class="date">2022.07.24</span>
+														</a>
+													</li>
+												
+
+													
+													<li>
+														<a href="https://developer-talk.tistory.com/588">
+															<span class="thum">
+																
+																	<img src="./update_anomaly_files/blank.png" alt="" data-src="//i1.daumcdn.net/thumb/C70x70/?fname=https://img1.daumcdn.net/thumb/R750x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FsaVMy%2FbtrH33mhgCx%2Fkfo8Dxyj5uceAVNuaK4xJ0%2Fimg.png" class="lazyload" style="width: 70px; height: 70px; opacity: 0;">
+																
+															</span>
+															<span class="title">팔도 신제품 꼬들김 후기</span>
+															<span class="date">2022.07.23</span>
+														</a>
+													</li>
+												
+
+													
+													<li>
+														<a href="https://developer-talk.tistory.com/587">
+															<span class="thum">
+																
+																	<img src="./update_anomaly_files/blank.png" alt="" data-src="//i1.daumcdn.net/thumb/C70x70/?fname=https://img1.daumcdn.net/thumb/R750x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbzzOAs%2FbtrHTEu663O%2Ff0fyII3YLIkUysOHaV8DHk%2Fimg.jpg" class="lazyload" style="width: 70px; height: 70px; opacity: 0;">
+																
+															</span>
+															<span class="title">3년차 개발자의 슬럼프</span>
+															<span class="date">2022.07.22</span>
+														</a>
+													</li>
+												
+
+													
+													<li>
+														<a href="https://developer-talk.tistory.com/586">
+															<span class="thum">
+																
+																	<img src="./update_anomaly_files/blank.png" alt="" data-src="//i1.daumcdn.net/thumb/C70x70/?fname=https://img1.daumcdn.net/thumb/R750x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FdmfYZW%2FbtrHUMMgfD0%2FgUXFodSAe2JAglcbSzi471%2Fimg.png" class="lazyload" style="width: 70px; height: 70px; opacity: 0;">
+																
+															</span>
+															<span class="title">[냉동식품]시카고 리얼 쉬림프피자 후기</span>
+															<span class="date">2022.07.22</span>
+														</a>
+													</li>
+												
+
+													
+													<li>
+														<a href="https://developer-talk.tistory.com/585">
+															<span class="thum">
+																
+																	<img src="./update_anomaly_files/blank.png" alt="" data-src="//i1.daumcdn.net/thumb/C70x70/?fname=https://img1.daumcdn.net/thumb/R750x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fbot1IC%2FbtrHwko7wtQ%2FZjYXnorgitiGQkIm25DQmk%2Fimg.png" class="lazyload" style="width: 70px; height: 70px; opacity: 0;">
+																
+															</span>
+															<span class="title">[C#]LINQ 특정 값 포함 여부 - Contains 메서드</span>
+															<span class="date">2022.07.18</span>
+														</a>
+													</li>
+												
+
+													
+													<li>
+														<a href="https://developer-talk.tistory.com/584">
+															<span class="thum">
+																
+																	<img src="./update_anomaly_files/blank.png" alt="" data-src="//i1.daumcdn.net/thumb/C70x70/?fname=https://img1.daumcdn.net/thumb/R750x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FpFaDU%2FbtrHum1Si2y%2FyK9MOmox29QLkpWv0CKpgk%2Fimg.png" class="lazyload" style="width: 70px; height: 70px; opacity: 0;">
+																
+															</span>
+															<span class="title">[C#]LINQ 거꾸로 뒤집기 - Reverse 메서드</span>
+															<span class="date">2022.07.17</span>
+														</a>
+													</li>
+												
+
+													
+													<li>
+														<a href="https://developer-talk.tistory.com/583">
+															<span class="thum">
+																
+																	<img src="./update_anomaly_files/blank.png" alt="" data-src="//i1.daumcdn.net/thumb/C70x70/?fname=https://img1.daumcdn.net/thumb/R750x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcHvznT%2FbtrHzpDf7Bb%2FPxUKKKoTxZquURYhISLee1%2Fimg.png" class="lazyload" style="width: 70px; height: 70px; opacity: 0;">
+																
+															</span>
+															<span class="title">[C#]LINQ 특정 필드 순서대로 정렬</span>
+															<span class="date">2022.07.17</span>
+														</a>
+													</li>
+												
+											</ul>
+										</div>
+									
+							</div>
+						</aside>
+						<article style="height: auto !important;">
+							
+							<div id="upper">
+								
+							</div>
+							
+							
+
+							
+
+							
+							
+							<div class="inner" style="height: auto !important;">
+								
+
+								
+									
+								
+								
+									
+										
+									
+									<ul>
+										
+									</ul>
+									
+									
+										<div class="content-title">
+											<div class="inner">
+												<span class="category">DataBase/이론&amp;SQL</span>
+												<div class="title-box">
+													<h1>[데이터베이스]이상 현상(Anomaly)</h1>
+												</div>
+												<span class="meta">
+													<span class="author">Dev Story</span>
+													<span class="date">2021. 11. 28.</span>
+													
+												</span>
+											</div>
+										</div>
+
+										<div class="content-article" style="height: auto !important;">
+											<div class="book-toc" style="display: block;">
+												<p>목차<span id="toggle" style="padding-left:10px;" class="open"></span></p>
+												<ul id="toc" style="display: block;"><li><a href="https://developer-talk.tistory.com/256#%EC%9D%B4%EC%83%81_%ED%98%84%EC%83%81(Anomaly)%EC%9D%B4%EB%9E%80?">이상 현상(Anomaly)이란?</a></li><li><a href="https://developer-talk.tistory.com/256#%EC%82%BD%EC%9E%85_%EC%9D%B4%EC%83%81(Insertion_anomaly)">삽입 이상(Insertion anomaly)</a></li><li><a href="https://developer-talk.tistory.com/256#%EC%82%AD%EC%A0%9C_%EC%9D%B4%EC%83%81(Deletion_anomaly)">삭제 이상(Deletion anomaly)</a></li><li><a href="https://developer-talk.tistory.com/256#%EC%97%85%EB%8D%B0%EC%9D%B4%ED%8A%B8_%EC%9D%B4%EC%83%81(Update_anomaly)">업데이트 이상(Update anomaly)</a><ul></ul></li></ul>
+											</div>
+											<!-- 상단 광고 2개 삽입 start -->
+											
+												<div class="top-ads" style="height: auto !important;">
+													<div id="ad-top-left" class="revenue_unit_item adsense" style="height: auto !important;">
+														<script async="" src="./update_anomaly_files/f(9).txt"></script>
+														<ins class="adsbygoogle top-left" data-ad-client="ca-pub-6235017393305409" data-ad-slot="" data-ad-format="rectangle" data-full-width-responsive="true" style="width: 336px; height: 280px;" data-adsbygoogle-status="done" data-ad-status="filled"><ins id="aswift_2_expand" tabindex="0" title="Advertisement" aria-label="Advertisement" style="border: none; height: 280px; width: 336px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-table;"><ins id="aswift_2_anchor" style="border: none; height: 280px; width: 336px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: block; overflow: visible;"><iframe id="aswift_2" name="aswift_2" style="left:0;position:absolute;top:0;border:0;width:336px;height:280px;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="336" height="280" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" src="./update_anomaly_files/ads(1).html" data-google-container-id="a!3" data-google-query-id="CP_5yfSEmPkCFWKH6QUdFcwIVw" data-load-complete="true"></iframe></ins></ins></ins>
+														<script>
+															if($(window).width() < 710) {
+																$('#ad-top-left').remove();
+															} else {
+																adPush();
+															}
+														</script>
+													</div>
+													<div id="ad-top-right" class="revenue_unit_item adsense" style="height: auto !important;">
+														<script async="" src="./update_anomaly_files/f(9).txt"></script>
+														<ins class="adsbygoogle top-right" data-ad-client="ca-pub-6235017393305409" data-ad-slot="" data-ad-format="rectangle" data-full-width-responsive="true" style="width: 336px; height: 280px;" data-adsbygoogle-status="done" data-ad-status="filled"><ins id="aswift_3_expand" tabindex="0" title="Advertisement" aria-label="Advertisement" style="border: none; height: 280px; width: 336px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-table;"><ins id="aswift_3_anchor" style="border: none; height: 280px; width: 336px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: block; overflow: visible;"><iframe id="aswift_3" name="aswift_3" style="left:0;position:absolute;top:0;border:0;width:336px;height:280px;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="336" height="280" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" src="./update_anomaly_files/ads(2).html" data-google-container-id="a!4" data-google-query-id="COLPyvSEmPkCFRY5vQodc5EA8g" data-load-complete="true"></iframe></ins></ins></ins>
+														<script>
+															adPush();
+														</script>
+													</div>
+												</div>
+											
+											<!-- 상단 광고 2개 삽입 end -->
+											<div itemprop="articleBody" style="height: auto !important;">
+												<div class="tt_article_useless_p_margin contents_style" style="height: auto !important;"><h3 style="text-align: left;" data-ke-size="size23" id="이상_현상(Anomaly)이란?"><b>이상 현상(Anomaly)이란?</b></h3>
+<p data-ke-size="size16" style="text-align: left;">데이터베이스에서 정규화를 수행하지 않으면, 데이터의 중복이 발생하고 전체적인 무결성이 저하됩니다. 이러한 원인은 데이터 <b>이상 현상(Anomaly)</b>에 의해 발생하며, 이상 현상으로 인해&nbsp;&nbsp;현실세계의 실제 값과 데이터베이스에 저장된 값이 일치하지 않는 문제가 발생합니다.<br> <br>데이터 이상은 삽입 이상, 업데이트 이상, 삭제 이상이라는 세 가지 유형이 존재합니다.<br> <br>다음은 이상 현상을 설명할 대학교 테이블입니다.</p>
+<table style="border-collapse: collapse; width: 100%;" border="1" data-ke-style="style8" data-ke-align="alignLeft">
+ <tbody>
+  <tr style="height: 20px;">
+   <td style="width: 16.6667%; height: 20px; text-align: center;"><b>학번</b></td>
+   <td style="width: 16.6667%; height: 20px; text-align: center;"><b>학생명</b></td>
+   <td style="width: 16.6667%; height: 20px; text-align: center;"><b>학과 코드</b></td>
+   <td style="width: 16.6667%; height: 20px; text-align: center;"><b>학과명</b></td>
+   <td style="width: 16.6667%; height: 20px; text-align: center;"><b>학과장 코드</b></td>
+   <td style="width: 16.6667%; height: 20px; text-align: center;"><b>학과장명</b></td>
+  </tr>
+  <tr style="height: 20px;">
+   <td style="width: 16.6667%; height: 20px; text-align: center;">1</td>
+   <td style="width: 16.6667%; height: 20px; text-align: center;">도우너</td>
+   <td style="width: 16.6667%; height: 20px; text-align: center;">101</td>
+   <td style="width: 16.6667%; height: 20px; text-align: center;">경영학과</td>
+   <td style="width: 16.6667%; height: 20px; text-align: center;">1000</td>
+   <td style="width: 16.6667%; height: 20px; text-align: center;">워런 버핏</td>
+  </tr>
+  <tr style="height: 20px;">
+   <td style="width: 16.6667%; height: 20px; text-align: center;">2</td>
+   <td style="width: 16.6667%; height: 20px; text-align: center;">고길동</td>
+   <td style="width: 16.6667%; height: 20px; text-align: center;">101</td>
+   <td style="width: 16.6667%; height: 20px; text-align: center;">경영학과</td>
+   <td style="width: 16.6667%; height: 20px; text-align: center;">1000</td>
+   <td style="width: 16.6667%; height: 20px; text-align: center;">워런 버핏</td>
+  </tr>
+  <tr style="height: 20px;">
+   <td style="width: 16.6667%; height: 20px; text-align: center;">3</td>
+   <td style="width: 16.6667%; height: 20px; text-align: center;">또치</td>
+   <td style="width: 16.6667%; height: 20px; text-align: center;">102</td>
+   <td style="width: 16.6667%; height: 20px; text-align: center;">물리학과</td>
+   <td style="width: 16.6667%; height: 20px; text-align: center;">2000</td>
+   <td style="width: 16.6667%; height: 20px; text-align: center;">아인슈타인</td>
+  </tr>
+  <tr style="height: 20px;">
+   <td style="width: 16.6667%; height: 20px; text-align: center;">4</td>
+   <td style="width: 16.6667%; height: 20px; text-align: center;">마이콜</td>
+   <td style="width: 16.6667%; height: 20px; text-align: center;">102</td>
+   <td style="width: 16.6667%; height: 20px; text-align: center;">물리학과</td>
+   <td style="width: 16.6667%; height: 20px; text-align: center;">2000</td>
+   <td style="width: 16.6667%; height: 20px; text-align: center;">아인슈타인</td>
+  </tr>
+  <tr style="height: 20px;">
+   <td style="width: 16.6667%; height: 20px; text-align: center;">5</td>
+   <td style="width: 16.6667%; height: 20px; text-align: center;">둘리</td>
+   <td style="width: 16.6667%; height: 20px; text-align: center;">103</td>
+   <td style="width: 16.6667%; height: 20px; text-align: center;">컴퓨터공학과</td>
+   <td style="width: 16.6667%; height: 20px; text-align: center;">3000</td>
+   <td style="width: 16.6667%; height: 20px; text-align: center;">빌 게이츠</td>
+  </tr>
+ </tbody>
+</table>
+<hr data-ke-type="horizontalRule" data-ke-style="style3">
+<h3 style="text-align: left;" data-ke-size="size23" id="삽입_이상(Insertion_anomaly)"><b>삽입 이상(Insertion anomaly)</b></h3>
+<p data-ke-size="size16" style="text-align: left;"><b>삽입 이상</b>은 특정 데이터가 존재하지 않아 중요한 데이터를 데이터베이스에 삽입할 수 없을 때 발생합니다.<br> <br>대학교 테이블에서 기본키는 '학번'입니다. 새로운 행을 삽입하기 위해서는 기본키인 '학번'이 필수입니다.<br> <br>현재 3개의 학과(경영학과, 물리학과, 컴퓨터공학과)가 존재하고 신설학과인 '수학과'가 새로 생겼으며, 대학교 테이블에 데이터를 추가해야 합니다.</p><figure class="imageblock alignCenter" data-origin-width="1367" data-origin-height="505" data-ke-mobilestyle="alignCenter"><span data-url="https://blog.kakaocdn.net/dn/cpMjgF/btrmoqwcdRP/3KxplydxU6AQDVaUzyQaSk/img.png" data-lightbox="lightbox" data-alt=""><img src="./update_anomaly_files/img.png" srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcpMjgF%2FbtrmoqwcdRP%2F3KxplydxU6AQDVaUzyQaSk%2Fimg.png" data-ke-mobilestyle="alignCenter" alt="[데이터베이스]이상 현상(Anomaly) - undefined - 삽입 이상(Insertion anomaly)" title="[데이터베이스]이상 현상(Anomaly) - undefined - 삽입 이상(Insertion anomaly)" data-srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcpMjgF%2FbtrmoqwcdRP%2F3KxplydxU6AQDVaUzyQaSk%2Fimg.png" data-src="https://blog.kakaocdn.net/dn/cpMjgF/btrmoqwcdRP/3KxplydxU6AQDVaUzyQaSk/img.png" class="lazyload" style="width: 753px; height: 277.664px; opacity: 1;"></span></figure>
+<p data-ke-size="size16" style="text-align: left;">하지만, 신설학과인 '수학과'에는 학생이 존재하지 않기 때문에 대학교 테이블에 데이터를 추가할 수 없습니다.<br> <br>이러한 현상을 <b>삽입 이상</b>이라고 합니다.<br> <br>물론, 정규화에 의해 대학교 테이블을 학생 테이블, 학과 테이블로 분리한다면 데이터를 추가할 수 있지만, 설명하고 있는 예시는 정규화가 되지 않은 상태라고 가정합니다.</p>
+<hr data-ke-type="horizontalRule" data-ke-style="style3">
+<h3 style="text-align: left;" data-ke-size="size23" id="삭제_이상(Deletion_anomaly)"><b>삭제 이상(Deletion anomaly)</b></h3>
+<p data-ke-size="size16" style="text-align: left;"><b>삭제 이상</b>은 특정 정보를 삭제하면, 원치 않는 정보도 삭제되는 현상입니다.<br> <br>컴퓨터공학과의 둘리 학생이 자퇴해서 데이터를 삭제해야 하는 경우 컴퓨터공학과의 학과 코드 및 학과장 정보도 삭제됩니다.</p><figure class="imageblock alignCenter" data-origin-width="1365" data-origin-height="504" data-ke-mobilestyle="alignCenter"><span data-url="https://blog.kakaocdn.net/dn/ybtso/btrmoqwcn0M/J1CenPLzallpiHHhjD3Lok/img.png" data-lightbox="lightbox" data-alt=""><img src="./update_anomaly_files/img(1).png" srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fybtso%2Fbtrmoqwcn0M%2FJ1CenPLzallpiHHhjD3Lok%2Fimg.png" data-ke-mobilestyle="alignCenter" alt="[데이터베이스]이상 현상(Anomaly) - undefined - 삭제 이상(Deletion anomaly)" title="[데이터베이스]이상 현상(Anomaly) - undefined - 삭제 이상(Deletion anomaly)" data-srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fybtso%2Fbtrmoqwcn0M%2FJ1CenPLzallpiHHhjD3Lok%2Fimg.png" data-src="https://blog.kakaocdn.net/dn/ybtso/btrmoqwcn0M/J1CenPLzallpiHHhjD3Lok/img.png" class="lazyload" style="width: 753px; height: 277.664px; opacity: 1;"></span></figure>
+<p data-ke-size="size16" style="text-align: left;">둘리 학생의 데이터를 삭제하면, 컴퓨터공학과의 학과 코드와 학과장 정보를 특정 테이블에 저장하지 않았기에 데이터가 소멸되는 문제가 발생합니다.<br> <br>이러한 현상을 <b>삭제 이상</b>이라고 합니다.<br> <br>삽입 현상에서 설명했듯이 정규화에 의해 테이블을 분리하면 삭제 이상을 해결할 수 있습니다.</p>
+<hr data-ke-type="horizontalRule" data-ke-style="style3">
+<h3 style="text-align: left;" data-ke-size="size23" id="업데이트_이상(Update_anomaly)"><b>업데이트 이상(Update anomaly)</b></h3>
+<p data-ke-size="size16" style="text-align: left;">테이블의 특정 데이터를 업데이트했는데, 정상적으로 변경되지 않은 경우 그리고 너무 많은 행을 업데이트하는 것을 <b>업데이트 이상</b>이라고 합니다.<br> <br>경영학과의 학생이 100명이라고 가정하고 경영학과의 학과장이 이름을 개명해서 학과장명을 변경해야 하는 경우입니다.</p>
+<table style="border-collapse: collapse; width: 100%;" border="1" data-ke-style="style8" data-ke-align="alignLeft">
+ <tbody>
+  <tr style="height: 20px;">
+   <td style="width: 16.6667%; height: 20px; text-align: center;"><b>학번</b></td>
+   <td style="width: 16.6667%; height: 20px; text-align: center;"><b>학생명</b></td>
+   <td style="width: 16.6667%; height: 20px; text-align: center;"><b>학과 코드</b></td>
+   <td style="width: 16.6667%; height: 20px; text-align: center;"><b>학과명</b></td>
+   <td style="width: 16.6667%; height: 20px; text-align: center;"><b>학과장 코드</b></td>
+   <td style="width: 16.6667%; height: 20px; text-align: center;"><b>학과장명</b></td>
+  </tr>
+  <tr style="height: 20px;">
+   <td style="width: 16.6667%; height: 20px; text-align: center;">1</td>
+   <td style="width: 16.6667%; height: 20px; text-align: center;">도우너</td>
+   <td style="width: 16.6667%; height: 20px; text-align: center;">101</td>
+   <td style="width: 16.6667%; height: 20px; text-align: center;">경영학과</td>
+   <td style="width: 16.6667%; height: 20px; text-align: center;">1000</td>
+   <td style="width: 16.6667%; height: 20px; text-align: center;">워런 버핏</td>
+  </tr>
+  <tr style="height: 20px;">
+   <td style="width: 16.6667%; height: 20px; text-align: center;">2</td>
+   <td style="width: 16.6667%; height: 20px; text-align: center;">고길동</td>
+   <td style="width: 16.6667%; height: 20px; text-align: center;">101</td>
+   <td style="width: 16.6667%; height: 20px; text-align: center;">경영학과</td>
+   <td style="width: 16.6667%; height: 20px; text-align: center;">1000</td>
+   <td style="width: 16.6667%; height: 20px; text-align: center;">워런 버핏</td>
+  </tr>
+  <tr style="height: 20px;">
+   <td style="width: 16.6667%; height: 20px; text-align: center;">...</td>
+   <td style="width: 16.6667%; height: 20px; text-align: center;">...</td>
+   <td style="width: 16.6667%; height: 20px; text-align: center;">...</td>
+   <td style="width: 16.6667%; height: 20px; text-align: center;">...</td>
+   <td style="width: 16.6667%; height: 20px; text-align: center;">...</td>
+   <td style="width: 16.6667%; height: 20px; text-align: center;">...</td>
+  </tr>
+  <tr style="height: 20px;">
+   <td style="width: 16.6667%; height: 20px; text-align: center;">100</td>
+   <td style="width: 16.6667%; height: 20px; text-align: center;">둘리</td>
+   <td style="width: 16.6667%; height: 20px; text-align: center;">101</td>
+   <td style="width: 16.6667%; height: 20px; text-align: center;">경영학과</td>
+   <td style="width: 16.6667%; height: 20px; text-align: center;">1000</td>
+   <td style="width: 16.6667%; height: 20px; text-align: center;">워런 버핏</td>
+  </tr>
+ </tbody>
+</table>
+<p data-ke-size="size16" style="text-align: left;">경영학과의 학생이 100명이므로 100개의 데이터를 변경해야 합니다.<br> <br>여기서 변경되지 않은 행이 한 개라도 존재하면, 데이터가 상이한 문제가 발생합니다.<br> <br>그리고 학생이 1000명이라면, 1000개의 데이터를 변경해야 하는 비효율적인 문제가 발생합니다.<br> <br>이러한 현상을 <b>업데이트 이상</b>이라고 합니다.<br> <br>위 문제는 다음과 같이 테이블을 두 개로 분리 후 학과장 테이블의 한 개의 행만 변경하여 해결할 수 있습니다.<br> <br><b>대학교 테이블</b></p>
+<table style="border-collapse: collapse; width: 100%;" border="1" data-ke-style="style8" data-ke-align="alignLeft">
+ <tbody>
+  <tr>
+   <td style="width: 11.9767%; text-align: center;"><b>학번</b></td>
+   <td style="width: 15.814%; text-align: center;"><b>학생명</b></td>
+   <td style="width: 21.0465%; text-align: center;"><b>학과 코드</b></td>
+   <td style="width: 13.721%; text-align: center;"><b>학과명</b></td>
+   <td style="width: 13.721%; text-align: center;"><b>학과장 코드</b></td>
+  </tr>
+  <tr>
+   <td style="width: 11.9767%; text-align: center;">1</td>
+   <td style="width: 15.814%; text-align: center;">도우너</td>
+   <td style="width: 21.0465%; text-align: center;">101</td>
+   <td style="width: 13.721%; text-align: center;">경영학과</td>
+   <td style="width: 13.721%; text-align: center;">1000</td>
+  </tr>
+  <tr>
+   <td style="width: 11.9767%; text-align: center;">2</td>
+   <td style="width: 15.814%; text-align: center;">고길동</td>
+   <td style="width: 21.0465%; text-align: center;">101</td>
+   <td style="width: 13.721%; text-align: center;">경영학과</td>
+   <td style="width: 13.721%; text-align: center;">1000</td>
+  </tr>
+  <tr>
+   <td style="width: 11.9767%; text-align: center;">...</td>
+   <td style="width: 15.814%; text-align: center;">...</td>
+   <td style="width: 21.0465%; text-align: center;">...</td>
+   <td style="width: 13.721%; text-align: center;">...</td>
+   <td style="width: 13.721%; text-align: center;">...</td>
+  </tr>
+  <tr>
+   <td style="width: 11.9767%; text-align: center;">100</td>
+   <td style="width: 15.814%; text-align: center;">둘리</td>
+   <td style="width: 21.0465%; text-align: center;">101</td>
+   <td style="width: 13.721%; text-align: center;">경영학과</td>
+   <td style="width: 13.721%; text-align: center;">1000</td>
+  </tr>
+ </tbody>
+</table>
+<p data-ke-size="size16" style="text-align: left;"> <br><b>학과장 테이블</b></p>
+<table style="border-collapse: collapse; width: 100%;" border="1" data-ke-style="style8" data-ke-align="alignLeft">
+ <tbody>
+  <tr>
+   <td style="width: 22.093%; text-align: center;"><b>학과장 코드</b></td>
+   <td style="width: 20.9302%; text-align: center;"><b>학과장명</b></td>
+  </tr>
+  <tr>
+   <td style="width: 22.093%; text-align: center;">1000</td>
+   <td style="width: 20.9302%; text-align: center;">워런 버핏</td>
+  </tr>
+  <tr>
+   <td style="width: 22.093%; text-align: center;">2000</td>
+   <td style="width: 20.9302%; text-align: center;">아인슈타인</td>
+  </tr>
+  <tr>
+   <td style="width: 22.093%; text-align: center;">3000</td>
+   <td style="width: 20.9302%; text-align: center;">빌 게이츠</td>
+  </tr>
+ </tbody>
+</table>
+<p data-ke-size="size16" style="text-align: left;">그리고 대학교 테이블과 학과장 테이블을 조인하여 학과장명을 조회할 수 있습니다.</p>            <div class="revenue_unit_wrap ">
+               <div class="revenue_unit_item adsense  responsive">
+                    <div class="revenue_unit_info">반응형</div>
+                    <script async="" src="./update_anomaly_files/f(9).txt"></script>
+                    <ins class="adsbygoogle" style="display: block; height: 280px;" data-ad-host="ca-host-pub-9691043933427338" data-ad-client="ca-pub-6235017393305409" data-ad-format="auto" data-adsbygoogle-status="done" data-ad-status="filled"><ins id="aswift_4_expand" tabindex="0" title="Advertisement" aria-label="Advertisement" style="border: none; height: 280px; width: 757px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-table;"><ins id="aswift_4_anchor" style="border: none; height: 280px; width: 757px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: block; overflow: visible;"><iframe id="aswift_4" name="aswift_4" style="left:0;position:absolute;top:0;border:0;width:757px;height:280px;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="757" height="280" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" src="./update_anomaly_files/ads(3).html" data-google-container-id="a!5" data-google-query-id="CNe0y_SEmPkCFRuG6QUdo0UAIQ" data-load-complete="true"></iframe></ins></ins></ins>
+                    <script>(adsbygoogle = window.adsbygoogle || []).push({}); </script>
+               </div>
+            </div><div class="container_postbtn #post_button_group">
+    <div class="postbtn_like">
+        
+<script>
+    window.ReactionButtonType = 'reaction';
+    window.ReactionApiUrl = '//developer-talk.tistory.com/reaction';
+    window.ReactionReqBody = {
+        entryId: 256    }
+</script>
+<div class="wrap_btn" id="reaction-256"><button class="btn_post uoc-icon"><div class="uoc-icon"><span class="ico_postbtn ico_like">좋아요</span><span class="txt_like uoc-count">1</span></div></button></div>
+<script src="./update_anomaly_files/reaction-button-container.min.js"></script>
+        <div class="wrap_btn wrap_btn_share">
+    <button type="button" class="btn_post sns_btn btn_share" data-thumbnail-url="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcpMjgF%2FbtrmoqwcdRP%2F3KxplydxU6AQDVaUzyQaSk%2Fimg.png" data-title="[데이터베이스]이상 현상(Anomaly)" data-description="이상 현상(Anomaly)이란? 데이터베이스에서 정규화를 수행하지 않으면, 데이터의 중복이 발생하고 전체적인 무결성이 저하됩니다. 이러한 원인은 데이터 이상 현상(Anomaly)에 의해 발생하며, 이상 현상으로 인해.." data-profile-image="https://t1.daumcdn.net/tistory_admin/static/manage/images/r3/default_L.png" data-profile-name="Dev Story" data-pc-url="https://developer-talk.tistory.com/256" data-relative-pc-url="/256" data-blog-title="평범한 직장인의 공부 정리">
+        <span class="ico_postbtn ico_share">공유하기</span>
+    </button>
+</div>
+                <div class="wrap_btn wrap_btn_etc" data-entry-id="256" data-entry-visibility="public" data-category-visibility="public">
+    <button type="button" class="btn_post btn_etc2"><span class="ico_postbtn ico_etc">글 요소</span></button>
+</div>
+    </div>
+    <button type="button" class="btn_menu_toolbar btn_subscription  #subscribe" data-blog-id="3889736" data-url="https://developer-talk.tistory.com/256" data-device="web_pc">
+    <em class="txt_state">구독하기</em>
+    <strong class="txt_tool_id">평범한 직장인의 공부 정리</strong>
+    <span class="img_common_tistory ico_check_type1"></span>
+</button>
+    <div class="postbtn_ccl" data-ccl-type="1">
+    <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.ko" target="_blank" class="link_ccl" rel="license">
+        <span class="bundle_ccl">
+            <span class="ico_postbtn ico_ccl1">저작자표시</span><span class="ico_postbtn ico_ccl2">비영리</span><span class="ico_postbtn ico_ccl3">변경금지</span>        </span>
+    </a>
+</div>
+    <!--
+<rdf:RDF xmlns="http://web.resource.org/cc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <Work rdf:about="">
+        <license rdf:resource="http://creativecommons.org/licenses/by-nc-nd/2.0/kr/" />
+    </Work>
+    <License rdf:about="http://creativecommons.org/licenses/by-nc-nd/">
+        <permits rdf:resource="http://web.resource.org/cc/Reproduction"/>
+        <permits rdf:resource="http://web.resource.org/cc/Distribution"/>
+        <requires rdf:resource="http://web.resource.org/cc/Notice"/>
+        <requires rdf:resource="http://web.resource.org/cc/Attribution"/>
+                        <prohibits rdf:resource="http://web.resource.org/cc/CommercialUse"/>
+            </License>
+</rdf:RDF>
+-->
+</div><div class="tt-plugin tt-share-entry-with-sns tt-sns-icon-alignment-left tt-sns-icon-size-big">
+	<div class="tt-sns-wrap" id="ttSnsWrap-256">
+		<ul class="tt-sns-service-default">
+			<li class="tt-sns-service-kakaostory"><a href="javascript:;" onclick="ShareEntryWithSNS.share(&#39;kakaostory&#39;, &#39;256&#39;, &#39;%5B%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4%5D%EC%9D%B4%EC%83%81%20%ED%98%84%EC%83%81%28Anomaly%29&#39;);">카카오스토리</a></li>
+			<li class="tt-sns-service-twitter"><a href="javascript:;" onclick="ShareEntryWithSNS.share(&#39;twitter&#39;, &#39;256&#39;, &#39;%5B%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4%5D%EC%9D%B4%EC%83%81%20%ED%98%84%EC%83%81%28Anomaly%29&#39;);">트위터</a></li>
+			<li class="tt-sns-service-facebook"><a href="javascript:;" onclick="ShareEntryWithSNS.share(&#39;facebook&#39;, &#39;256&#39;, &#39;%5B%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4%5D%EC%9D%B4%EC%83%81%20%ED%98%84%EC%83%81%28Anomaly%29&#39;);">페이스북</a></li>
+		</ul>
+	</div>
+	<div class="tt-sns-clear"></div>
+</div>
+<div class="another_category another_category_color_gray">
+<h4 id="&#39;DataBase_&gt;_이론&amp;SQL&#39;_카테고리의_다른_글">'<a href="https://developer-talk.tistory.com/category/DataBase">DataBase</a>&nbsp;&gt;&nbsp;<a href="https://developer-talk.tistory.com/category/DataBase/%EC%9D%B4%EB%A1%A0%26SQL">이론&amp;SQL</a>' 카테고리의 다른 글</h4>
+<table>
+<tbody><tr>
+<th>
+<a href="https://developer-talk.tistory.com/420">[SQL]간단하면서 쉬운 쿼리 최적화 방법</a>&nbsp;&nbsp;<span>(0)</span>
+</th>
+<td>
+2022.04.15</td>
+</tr>
+<tr>
+<th>
+<a href="https://developer-talk.tistory.com/258">[데이터베이스]TRUNCATE, DELETE, DROP 차이점</a>&nbsp;&nbsp;<span>(0)</span>
+</th>
+<td>
+2021.11.29</td>
+</tr>
+<tr>
+<th>
+<a href="https://developer-talk.tistory.com/256" class="current">[데이터베이스]이상 현상(Anomaly)</a>&nbsp;&nbsp;<span>(0)</span>
+</th>
+<td>
+2021.11.28</td>
+</tr>
+<tr>
+<th>
+<a href="https://developer-talk.tistory.com/255">[데이터베이스]트랜잭션 ACID 속성</a>&nbsp;&nbsp;<span>(0)</span>
+</th>
+<td>
+2021.11.28</td>
+</tr>
+</tbody></table></div></div>
+											</div>
+										</div>
+										<div style="margin-top:30px;"></div>
+										
+											<div class="tags">
+												<h2>태그</h2>
+												<a href="https://developer-talk.tistory.com/tag/anomaly" rel="tag">anomaly</a><a href="https://developer-talk.tistory.com/tag/Database" rel="tag">Database</a><a href="https://developer-talk.tistory.com/tag/%EC%9D%B4%EC%83%81%20%ED%98%84%EC%83%81" rel="tag">이상 현상</a>
+											</div>
+										
+										<div style="margin-top:30px;"></div>
+										
+											<div class="related-articles">
+												<h2>많이 본 글</h2>
+												<div class="related-articles-wrap">
+													<script async="" src="./update_anomaly_files/f(9).txt"></script>
+													<ins class="adsbygoogle" style="display: block; height: 448px;" data-ad-format="autorelaxed" data-ad-client="ca-pub-6235017393305409" data-ad-slot="8616710945" data-adsbygoogle-status="done" data-ad-status="filled"><ins id="aswift_5_expand" style="border: none; height: 448px; width: 747px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-table;" tabindex="0" title="Advertisement" aria-label="Advertisement"><ins id="aswift_5_anchor" style="border: none; height: 448px; width: 747px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: block;"><iframe id="aswift_5" name="aswift_5" style="left:0;position:absolute;top:0;border:0;width:747px;height:448px;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="747" height="448" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" src="./update_anomaly_files/ads(4).html" data-google-container-id="a!6" data-google-query-id="CNH9zPaEmPkCFcGI6QUdOH0H6Q" data-load-complete="true"></iframe></ins></ins></ins>
+													<script>
+														adPush();
+													</script>
+												</div>
+											</div>
+											<div style="margin-top:30px;"></div>
+										
+										<!-- 하단 광고 2개 삽입 start -->
+										
+										<!-- 하단 광고 2개 삽입 end -->
+										<div style="margin-top:30px;"></div>
+										<div class="comments">
+											<h2>댓글<span class="count"><span id="commentCount256_1">0</span></span></h2>
+											<div id="entry256Comment">
+												
+
+												<form method="post" action="https://developer-talk.tistory.com/comment/add/256" onsubmit="return false" style="margin: 0">
+													<div class="comment-form">
+														
+															<div class="field">
+																
+																	<input type="text" name="name" placeholder="이름" value="">
+																	<input type="password" name="password" maxlength="8" placeholder="비밀번호" value="">
+																
+																<div class="secret">
+																	<input type="checkbox" name="secret" id="secret">
+																	<label for="secret" tabindex="0">비밀글</label>
+																</div>
+															</div>
+														
+														<textarea name="comment" cols="" rows="4" placeholder="여러분의 소중한 댓글을 입력해주세요."></textarea>
+														<div class="submit">
+															<button type="submit" class="btn" onclick="addComment(this, 256); return false;">등록</button>
+														</div>
+													</div>
+												</form>
+											</div><script>loadedComments[256]=true;findFragmentAndHighlight(256)</script>
+										</div>
+									
+								
+							</div>
+
+							
+
+							
+
+							
+								<div class="pagination">
+									<a href="https://developer-talk.tistory.com/257" class="prev ">이전</a>
+									
+										<a href="https://developer-talk.tistory.com/589"><span>1</span></a>
+									
+										<a><span>···</span></a>
+									
+										<a href="https://developer-talk.tistory.com/261"><span>282</span></a>
+									
+										<a href="https://developer-talk.tistory.com/260"><span>283</span></a>
+									
+										<a href="https://developer-talk.tistory.com/258"><span>284</span></a>
+									
+										<a href="https://developer-talk.tistory.com/257"><span>285</span></a>
+									
+										<a><span class="selected">286</span></a>
+									
+										<a href="https://developer-talk.tistory.com/255"><span>287</span></a>
+									
+										<a href="https://developer-talk.tistory.com/252"><span>288</span></a>
+									
+										<a href="https://developer-talk.tistory.com/250"><span>289</span></a>
+									
+										<a href="https://developer-talk.tistory.com/249"><span>290</span></a>
+									
+										<a><span>···</span></a>
+									
+										<a href="https://developer-talk.tistory.com/4"><span>498</span></a>
+									
+									<a href="https://developer-talk.tistory.com/255" class="next ">다음</a>
+								</div>
+							
+							<!-- 메인 일치하는 광고 -->
+							
+							<div id="lower">
+								
+							</div>
+						</article>
+					</div>
+				</section>
+
+				<footer>
+					<div class="inner">
+						<a href="https://developer-talk.tistory.com/256#" class="page-top">TOP</a>
+						<p class="meta"></p>
+						<p class="copyright"></p>
+						<p class="maker"><a href="https://sangminem.tistory.com/506" target="_blank"><font color="#ff7a00"><b>Mynem Skin 2.6.2</b> © Armynem</font></a></p>
+					</div>
+				</footer>
+			</div>
+			
+			<div class="floating-button" style="bottom: 15px;">
+				<!-- 글자 크기 조절 버튼 -->
+				
+					<a class="font-size-up-btn" onclick="changeFontSize(&#39;+&#39;)"></a>
+					<a class="font-size-down-btn" onclick="changeFontSize(&#39;-&#39;)"></a>
+				
+
+				<!-- 다크모드 버튼 -->
+				
+					
+						<a class="dark-mode-on-btn" onclick="setDarkMode(&#39;-&#39;)" style="display:none;"></a>
+						<a class="dark-mode-off-btn" onclick="setDarkMode(&#39;+&#39;)" style="display: flex;"></a>
+					
+				
+
+				<!-- 공유 버튼 -->
+				<a class="share-btn"></a>
+				<div id="custom-sns" class="layer_post"></div>
+				
+				<!-- 댓글 이동 버튼 -->
+				<a class="move-comment-btn" style=""></a>
+				
+				<!-- 상단 이동 버튼 -->
+				<a class="move-top-btn"></a>
+			</div>
+
+			<!-- 떠다니는 목차 -->
+			<div class="floating-toc"></div>
+
+			<!-- 토스트 메시지 -->
+			<div id="toast" class="toast-wrap" style="display:none;">
+				<div class="toast"></div>
+			</div>
+
+			<!-- 배경음악 태그 -->
+			<audio id="bgm" crossorigin="anonymous" muted=""></audio>
+
+			<!-- 1픽셀 이미지 -->
+			<img id="blank-img" src="./update_anomaly_files/blank.png" style="display:none;" alt="">
+
+			<!-- 이전/다음 글 박스 -->
+			
+
+			<!-- 설정 값 -->
+			<input type="hidden" id="bgm-src-1" value="">
+			<input type="hidden" id="bgm-title-1" value="">
+			<input type="hidden" id="bgm-src-2" value="">
+			<input type="hidden" id="bgm-title-2" value="">
+			<input type="hidden" id="bgm-src-3" value="">
+			<input type="hidden" id="bgm-title-3" value="">
+			<input type="hidden" id="bgm-src-4" value="">
+			<input type="hidden" id="bgm-title-4" value="">
+			<input type="hidden" id="bgm-src-5" value="">
+			<input type="hidden" id="bgm-title-5" value="">
+			<input type="hidden" id="bgm-src-6" value="">
+			<input type="hidden" id="bgm-title-6" value="">
+			<input type="hidden" id="bgm-src-7" value="">
+			<input type="hidden" id="bgm-title-7" value="">
+			<input type="hidden" id="bgm-src-8" value="">
+			<input type="hidden" id="bgm-title-8" value="">
+			<input type="hidden" id="bgm-src-9" value="">
+			<input type="hidden" id="bgm-title-9" value="">
+			<input type="hidden" id="bgm-src-10" value="">
+			<input type="hidden" id="bgm-title-10" value="">
+			<input type="hidden" id="toast-after-like-yn" value="">
+			<input type="hidden" id="toast-after-like" value="">
+			<input type="hidden" id="make-bell-yn" value="">
+			<input type="hidden" id="make-bell" value="">
+			<input type="hidden" id="fold-comment-yn" value="1">
+			<input type="hidden" id="fold-comment-num" value="3">
+			<input type="hidden" id="floating-toc-position" value="1">
+			<input type="hidden" id="bgm-autoplay-yn" value="">
+			<input type="hidden" id="bgm-autoplay-mobile-yn" value="">
+			<input type="hidden" id="init-bgm-volume" value="0.05">
+			<input type="hidden" id="hide-sidebar" value="">
+			<input type="hidden" id="fixed-header" value="1">
+			<input type="hidden" id="content-middle-yn" value="1">
+			<input type="hidden" id="fold-toc-yn" value="">
+			<input type="hidden" id="auto-toc-yn" value="1">
+			<input type="hidden" id="use-floating-toc-yn" value="1">
+			<input type="hidden" id="ignore-toc-yn" value="">
+			<input type="hidden" id="dark-mode" value="">
+			<input type="hidden" id="default-dark-mode" value="">
+			<input type="hidden" id="forced-dark-mode" value="">
+			<input type="hidden" id="lazy-loading" value="1">
+			<input type="hidden" id="article-max-width" value="1100">
+			<input type="hidden" id="progress-top" value="1">
+			<input type="hidden" id="progress-left" value="">
+			<input type="hidden" id="progress-right" value="">
+			<input type="hidden" id="progress-bottom" value="1">
+			<input type="hidden" id="toc-unfold-yn" value="1">
+			<input type="hidden" id="ads-toc-position" value="">
+			<input type="hidden" id="use-fixed-ads-yn" value="">
+			<input type="hidden" id="fold-category" value="">
+			<input type="hidden" id="fold-category-speed" value="600">
+			<input type="hidden" id="fold-category-target" value="">
+			<input type="hidden" id="adsense-refresh" value="">
+			<input type="hidden" id="fixed-ads-type" value="matched">
+			<input type="hidden" id="border-size" value="2">
+			<input type="hidden" id="make-clipboard-link" value="">
+			<input type="hidden" id="alert-chromium" value="">
+			<input type="hidden" id="alert-chromium-text" value="해당 브라우저에서는 미넴 스킨이 올바르게 동작하지 않을 수 있습니다.">
+			<input type="hidden" id="article-google-ads" value="">
+			<input type="hidden" id="article-google-ads-type" value="mixed">
+			<input type="hidden" id="article-google-ads-forced" value="">
+			<input type="hidden" id="article-data-ad-slot-inarticle" value="">
+			<input type="hidden" id="article-data-ad-slot-display1" value="">
+			<input type="hidden" id="article-data-ad-slot-display2" value="">
+			<input type="hidden" id="article-google-ads-frequency" value="60">
+			<input type="hidden" id="data-ad-client" value="ca-pub-6235017393305409">
+			<input type="hidden" id="auto-scroll-ads" value="">
+			<input type="hidden" id="d-day-date-1" value="20230101">
+			<input type="hidden" id="d-day-date-2" value="">
+			<input type="hidden" id="d-day-date-3" value="">
+			<input type="hidden" id="d-day-date-4" value="">
+			<input type="hidden" id="d-day-date-5" value="">
+		
+		<script src="./update_anomaly_files/common.min.js"></script><ins class="adsbygoogle adsbygoogle-noablate" data-adsbygoogle-status="done" style="display: none !important;" data-ad-status="unfilled"><ins id="aswift_0_expand" tabindex="0" title="Advertisement" aria-label="Advertisement" style="border: none; height: 0px; width: 0px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-table;"><ins id="aswift_0_anchor" style="border: none; height: 0px; width: 0px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: block;"><iframe id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;border:0;width:undefinedpx;height:undefinedpx;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" src="./update_anomaly_files/ads(5).html" data-google-container-id="a!1" data-load-complete="true"></iframe></ins></ins></ins>
+		<script src="./update_anomaly_files/jquery.toc.min.js"></script>
+		<script src="./update_anomaly_files/custom.js"></script>
+		<script src="./update_anomaly_files/element.js"></script>
+		<script async="" src="./update_anomaly_files/f(9).txt"></script>
+		<script>
+			window.onload = function() {
+				pageLoaded = true;
+			}
+		</script>
+	<link rel="stylesheet" href="./update_anomaly_files/atom-one-dark-reasonable.min.css">
+<script src="./update_anomaly_files/highlight.min.js"></script>
+<script src="./update_anomaly_files/delphi.min.js"></script>
+<script src="./update_anomaly_files/php.min.js"></script>
+<script src="./update_anomaly_files/python.min.js"></script>
+<script src="./update_anomaly_files/r.min.js"></script>
+<script src="./update_anomaly_files/ruby.min.js"></script>
+<script src="./update_anomaly_files/scala.min.js"></script>
+<script src="./update_anomaly_files/shell.min.js"></script>
+<script src="./update_anomaly_files/sql.min.js"></script>
+<script src="./update_anomaly_files/swift.min.js"></script>
+<script src="./update_anomaly_files/typescript.min.js"></script>
+<script src="./update_anomaly_files/vbnet.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script><script src="./update_anomaly_files/search_dragselection.min.js"></script>
+<script>
+  (function () {
+    function isShortContents () {
+      return window.getSelection().toString().length < 30;
+    }
+
+    function copyWithSource (event) {
+      if (isShortContents()) {
+        return;
+      }
+      var range = window.getSelection().getRangeAt(0);
+      var contents = range.cloneContents();
+      var temp = document.createElement('div');
+
+      temp.appendChild(contents);
+      
+      var url = document.location.href;
+      var decodedUrl = decodeURI(url);
+      var postfix = ' [평범한 직장인의 공부 정리:티스토리]';
+  
+      event.clipboardData.setData('text/plain', temp.innerText + '\n출처: ' + decodedUrl + postfix);
+      event.clipboardData.setData('text/html', '<pre data-ke-type="codeblock">' + temp.innerHTML + '</pre>' + '출처: <a href="' + url + '">' + decodedUrl + '</a>' + postfix);
+      event.preventDefault();
+    };
+  
+    document.addEventListener('copy', copyWithSource);
+  }())
+</script>
+	<script>
+	    lightbox.option({
+			"fadeDuration": 200,
+		    "resizeDuration": 200,
+		    "wrapAround": false,
+			"albumLabel": "%1 / %2",
+			"fitImagesInViewport":true ,
+			"stopEvent": false
+	    })
+	</script><script src="./update_anomaly_files/rainbow.js"></script>
+            <script src="./update_anomaly_files/tiara.min.js"></script>
+            <script>window.tiara = {"svcDomain":"user.tistory.com","section":"\uae00\ubdf0","trackPage":"\uae00\ubdf0_\ubcf4\uae30","page":"\uae00\ubdf0","key":"3889736-256","customProps":{"userId":0,"blogId":"3889736","role":"guest","filterTarget":false,"trackPage":"\uae00\ubdf0_\ubcf4\uae30","entryId":"256"},"entry":{"entryId":"256","categoryName":"\uc774\ub860&SQL","categoryId":"937337","author":"4368963","authorId":"4368963","image":"4368963","plink":"\/256","tags":["anomaly","Database","\uc774\uc0c1 \ud604\uc0c1"],"key":"3889736-256"},"sentryDsn":"https:\/\/a53520229cd744e798d42900d76b0e2a@aem-ingest.onkakao.net\/713","kakaoAppKey":"b8aef3eeb03fa312b81795386484f051","appUserId":null};</script>
+            <script src="./update_anomaly_files/tiara.min(1).js" defer=""></script>
+                        <script>
+                window.roosevelt_params_queue = window.roosevelt_params_queue || [{channel_id: 'dk', channel_label: 'tistory'}];
+            </script>
+            <script src="./update_anomaly_files/roosevelt_dk_bt.js" async=""></script><script>if(window.console!=undefined){setTimeout(console.log.bind(console,"%cTISTORY","font:8em Arial;color:#EC6521;font-weight:bold"),0);setTimeout(console.log.bind(console,"%c  나를 표현하는 블로그","font:2em sans-serif;color:#333;"),0);}</script><iframe style="position:absolute;width:1px;height:1px;left:-100px;top:-100px" src="./update_anomaly_files/api.html" id="editEntry"></iframe>            <div class="#menubar menu_toolbar ">
+                                            <h2 class="screen_out">티스토리툴바</h2>
+                                            <div class="btn_tool">
+                    <button class="btn_menu_toolbar btn_subscription  #subscribe" data-blog-id="3889736" data-url="https://developer-talk.tistory.com" data-device="web_pc">
+                        <strong class="txt_tool_id">평범한 직장인의 공부 정리</strong>
+                        <em class="txt_state">구독하기</em>
+                        <span class="img_common_tistory ico_check_type1"></span>
+                    </button>
+                </div>
+                                       </div>
+                                       <div class="#menubar menu_toolbar  toolbar_rb"><div class="btn_tool btn_tool_type1" id="menubar_wrapper"><button class="btn_menu_toolbar btn_menu_type2"><span class="img_common_tistory ico_tistory_sign">관리메뉴열기</span></button><div class="header_layer layer_tool" style="display: none;"><div class="inner_header_layer"><h2 class="screen_out">개인정보</h2><ul class="list_toolbar"><li><a href="https://www.tistory.com/" class="link_list">티스토리 홈</a></li><li><a href="https://www.tistory.com/category" class="link_list">스토리</a></li><li><a href="https://www.tistory.com/forum" class="link_list">포럼</a></li><li><a href="https://www.tistory.com/auth/login" class="link_list">로그인</a></li></ul></div></div></div></div>
+                                       <script src="./update_anomaly_files/menubar.min.js"></script>        <div class="layer_tooltip">
+            <div class="inner_layer_tooltip">
+                <p class="desc_g"></p>
+            </div>
+        </div>
+        <div id="tistoryEtcLayer" class="layer_post" style="display: none;"></div><div id="tistorySnsLayer" class="layer_post" style="display: none;"><div class="bundle_post"><a href="https://developer-talk.tistory.com/256#none" class="btn_mark" data-service="facebook"><span class="ico_sns ico_fb"></span>페이스북으로 공유</a><a href="https://developer-talk.tistory.com/256#none" class="btn_mark" data-service="kakaotalk"><span class="ico_sns ico_kt"></span>카카오톡으로 공유</a><a href="https://developer-talk.tistory.com/256#none" class="btn_mark" data-service="kakaostory"><span class="ico_sns ico_ks"></span>카카오스토리로 공유</a><a href="https://developer-talk.tistory.com/256#none" class="btn_mark" data-service="twitter"><span class="ico_sns ico_tw"></span>트위터로 공유</a><a href="https://developer-talk.tistory.com/256#none" class="btn_mark" data-service="url"><span class="ico_sns ico_url"></span>URL 복사</a><span class="ico_postbtn ico_arrbt"></span></div></div>
+<div id="lightboxOverlay" class="lightboxOverlay" style="display: none;"></div><div id="goog-gt-tt" class="skiptranslate" dir="ltr"><div style="padding: 8px;"><div><div class="logo"><img src="./update_anomaly_files/translate_24dp.png" width="20" height="20" alt="Google Translate"></div></div></div><div class="top" style="padding: 8px; float: left; width: 100%;"><h1 class="title gray">Original text</h1></div><div class="middle" style="padding: 8px;"><div class="original-text"></div></div><div class="bottom" style="padding: 8px;"><div class="activity-links"><span class="activity-link">Contribute a better translation</span><span class="activity-link"></span></div><div class="started-activity-container"><hr style="color: #CCC; background-color: #CCC; height: 1px; border: none;"><div class="activity-root"></div></div></div><div class="status-message" style="display: none;"></div></div><div id="lightbox" class="lightbox" style="display: none;"><div class="lb-outerContainer"><div class="lb-container"><img class="lb-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" alt=""><div class="lb-nav"><a class="lb-prev" href="https://developer-talk.tistory.com/256"></a><a class="lb-next" href="https://developer-talk.tistory.com/256"></a></div><div class="lb-loader"><a class="lb-cancel"></a></div></div></div><div class="lb-dataContainer"><div class="lb-data"><div class="lb-details"><span class="lb-caption"></span><span class="lb-number"></span></div><div class="lb-closeContainer"><a class="lb-close"></a></div></div></div></div><div class="goog-te-spinner-pos"><div class="goog-te-spinner-animation"><svg xmlns="http://www.w3.org/2000/svg" class="goog-te-spinner" width="96px" height="96px" viewBox="0 0 66 66"><circle class="goog-te-spinner-path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle></svg></div></div><ins class="adsbygoogle adsbygoogle-noablate" data-adsbygoogle-status="done" data-anchor-status="displayed" data-anchor-shown="true" style="display: none; width: 100% !important; height: 129px !important; bottom: 0px; clear: none !important; float: none !important; left: 0px; margin: 0px !important; max-height: none !important; max-width: none !important; opacity: 1; overflow: visible !important; padding: 0px !important; position: fixed; right: auto !important; top: auto !important; vertical-align: baseline !important; visibility: visible !important; z-index: 2147483647; background: rgb(250, 250, 250) !important;" data-ad-status="filled"><div class="grippy-host"></div><ins id="aswift_7_expand" tabindex="0" title="Advertisement" aria-label="Advertisement" style="border: none !important; height: 124px !important; width: 100% !important; margin: 0px !important; padding: 0px !important; position: relative !important; visibility: visible !important; background-color: transparent !important; display: inline-table !important; inset: auto !important; clear: none !important; float: none !important; max-height: none !important; max-width: none !important; opacity: 1 !important; overflow: visible !important; vertical-align: baseline !important; z-index: auto !important;"><ins id="aswift_7_anchor" style="border: none !important; height: 124px !important; width: 100% !important; margin: 0px !important; padding: 0px !important; position: relative !important; visibility: visible !important; background-color: transparent !important; display: block !important; inset: auto !important; clear: none !important; float: none !important; max-height: none !important; max-width: none !important; opacity: 1 !important; overflow: visible !important; vertical-align: baseline !important; z-index: auto !important;"><iframe id="aswift_7" name="aswift_7" style="width: 1005px !important; height: 124px !important; display: block; margin: 0px auto;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="1005" height="124" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" src="./update_anomaly_files/zrt_lookup.html" data-google-container-id="a!8" data-google-query-id="CK73yPSEmPkCFYOG6QUdM5oN1g" data-load-complete="true"></iframe></ins></ins></ins><iframe src="./update_anomaly_files/aframe.html" width="0" height="0" style="display: none;"></iframe></body><iframe id="google_esf" name="google_esf" src="./update_anomaly_files/zrt_lookup(1).html" style="display: none;"></iframe><ins class="adsbygoogle adsbygoogle-noablate" data-adsbygoogle-status="done" style="display: none !important; width: 100vw !important; height: 100vh !important; inset: 0px auto auto 0px !important; clear: none !important; float: none !important; margin: 0px !important; max-height: none !important; max-width: none !important; opacity: 1 !important; overflow: visible !important; padding: 0px !important; position: fixed !important; vertical-align: baseline !important; visibility: visible !important; z-index: 2147483647 !important; background: transparent !important;" aria-hidden="true" data-ad-status="filled" data-vignette-loaded="true"><ins id="aswift_6_expand" tabindex="0" title="Advertisement" aria-label="Advertisement" style="border: none !important; height: 100vh !important; width: 100vw !important; margin: 0px !important; padding: 0px !important; position: relative !important; visibility: visible !important; background-color: transparent !important; display: inline-table !important; inset: auto !important; clear: none !important; float: none !important; max-height: none !important; max-width: none !important; opacity: 1 !important; overflow: visible !important; vertical-align: baseline !important; z-index: auto !important;"><ins id="aswift_6_anchor" style="border: none !important; height: 100vh !important; width: 100vw !important; margin: 0px !important; padding: 0px !important; position: relative !important; visibility: visible !important; background-color: transparent !important; display: block !important; inset: auto !important; clear: none !important; float: none !important; max-height: none !important; max-width: none !important; opacity: 1 !important; overflow: visible !important; vertical-align: baseline !important; z-index: auto !important;"><iframe id="aswift_6" name="aswift_6" style="width: 100vw !important; height: 100vh !important; inset: 0px auto auto 0px !important; position: absolute !important; clear: none !important; display: inline !important; float: none !important; margin: 0px !important; max-height: none !important; max-width: none !important; opacity: 1 !important; overflow: visible !important; padding: 0px !important; vertical-align: baseline !important; visibility: visible !important; z-index: auto !important;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="" height="" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" src="./update_anomaly_files/zrt_lookup(2).html" data-google-container-id="a!7" data-google-query-id="CK33yPSEmPkCFYOG6QUdM5oN1g" data-load-complete="true"></iframe></ins></ins></ins></html>

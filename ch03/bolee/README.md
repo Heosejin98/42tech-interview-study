@@ -1,0 +1,3 @@
+# SQL vs NoSQL
+
+[SQL vs NoSQL](https://velog.io/@octo__/SQL-vs-NoSQL#sql%EA%B3%BC-nosql-%EC%A4%91%EC%97%90%EC%84%9C-%EC%96%B4%EB%96%A4-%EA%B2%83%EC%9D%84-%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94-%EA%B2%83%EC%9D%B4-%EC%A2%8B%EC%9D%84%EA%B9%8C)
