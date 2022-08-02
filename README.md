@@ -20,15 +20,15 @@
 # 2. 회차별 주제
 
 - **Computer Architecture 1회**
-    1. [컴퓨터 구조 기초](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Computer%20Architecture/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0%20%EA%B8%B0%EC%B4%88.pdf)
-    2. [컴퓨터의 구성](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Computer%20Architecture/%EC%BB%B4%ED%93%A8%ED%84%B0%EC%9D%98%20%EA%B5%AC%EC%84%B1.md)
-    3. [중앙처리장치(CPU) 작동 원리](https://velog.io/@sejin3319/%EC%A4%91%EC%95%99%EC%B2%98%EB%A6%AC%EC%9E%A5%EC%B9%98CPU-%EC%9E%91%EB%8F%99-%EC%9B%90%EB%A6%AC)
-    4. [캐시 메모리](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Computer%20Architecture/%EC%BA%90%EC%8B%9C%20%EB%A9%94%EB%AA%A8%EB%A6%AC(Cache%20Memory).md)
-    5. [고정 소수점 & 부동 소수점](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Computer%20Architecture/%EA%B3%A0%EC%A0%95%20%EC%86%8C%EC%88%98%EC%A0%90%20%26%20%EB%B6%80%EB%8F%99%20%EC%86%8C%EC%88%98%EC%A0%90.md)
-    6. [패리티 비트 & 해밍 코드](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Computer%20Architecture/%ED%8C%A8%EB%A6%AC%ED%8B%B0%20%EB%B9%84%ED%8A%B8%20%26%20%ED%95%B4%EB%B0%8D%20%EC%BD%94%EB%93%9C.md)
+    1. [컴퓨터 구조 기초 - tkang](https://liltdevs.tistory.com/105)
+    2. [컴퓨터의 구성 - junsoh](https://github.com/Heosejin98/42tech-interview-study/blob/master/ch01/junsoh/WEEK1.md)
+    3. [중앙처리장치(CPU) 작동 원리 - seheo](https://velog.io/@sejin3319/%EC%A4%91%EC%95%99%EC%B2%98%EB%A6%AC%EC%9E%A5%EC%B9%98CPU-%EC%9E%91%EB%8F%99-%EC%9B%90%EB%A6%AC)
+    4. [캐시 메모리 - yeblee](https://github.com/Heosejin98/42tech-interview-study/tree/master/ch01/yeblee)
+    5. [고정 소수점 & 부동 소수점 - mingkim](https://github.com/Heosejin98/42tech-interview-study/tree/master/ch01/mingkim)
+    6. [패리티 비트 & 해밍 코드 - bolee](https://github.com/Heosejin98/42tech-interview-study/tree/master/ch01/boleed)
 - **Computer Architecture &  Software Engineering 2회**
     1. [ARM 프로세서](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Computer%20Architecture/ARM%20%ED%94%84%EB%A1%9C%EC%84%B8%EC%84%9C.md)
-    2. [객체 지향 프로그래밍(Object-Oriented Programming)](https://github.com/Heosejin98/42tech-interview-study/tree/master/ch02/seheo)
+    2. [객체 지향 프로그래밍(Object-Oriented Programming) - seheo](https://github.com/Heosejin98/42tech-interview-study/tree/master/ch02/seheo)
     3. [함수형 프로그래밍(Fuctional Programming](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Software%20Engineering/Fuctional%20Programming.md))
     4. [데브옵스(DevOps)](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Software%20Engineering/%EB%8D%B0%EB%B8%8C%EC%98%B5%EC%8A%A4(DevOps).md)
     5. [서드 파티(3rd party)란?](https://github.com/yeblee/42tech-interview-study/tree/master/ch02/yeblee)
@@ -36,13 +36,14 @@
 - **Database 3회**
     1. [SQL Injection](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Database/SQL%20Injection.md)
     2. [SQL vs NoSQL](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Database/SQL%EA%B3%BC%20NOSQL%EC%9D%98%20%EC%B0%A8%EC%9D%B4.md)
-    3. [정규화(Nomalization와 반정규화(De-Nomalization))](https://velog.io/@sejin3319/DATABASE-%EC%A0%95%EA%B7%9C%ED%99%94Normalization)
+    3. [정규화(Nomalization와 반정규화(De-Nomalization)) - seheo](https://velog.io/@sejin3319/DATABASE-%EC%A0%95%EA%B7%9C%ED%99%94Normalization)
     4. [이상(Anomaly)](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Database/%5BDB%5D%20Anomaly.md)
     5. [인덱스(INDEX)](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Database/%5BDB%5D%20Index.md)
     6. [키(Key) 정리](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Database/%5BDB%5D%20Key.md)
 - **Database & Devops 4회**
     1. [SQL - JOIN](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Database/%5BDatabase%20SQL%5D%20JOIN.md)
-    2. [트랜잭션(Transaction)](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Database/Transaction.md)
+    2. [트랜잭션(Transaction) - seheo](https://velog.io/@octo__/%EA%B4%80%EA%B3%84%ED%98%95-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4%EC%9D%98-%ED%95%84%EC%9A%94%EC%84%B1)
+
     3. [트랜잭션 격리 수준(Transaction Isolation Level)](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Database/Transaction%20Isolation%20Level.md)
     4. [저장 프로시저(Stored PROCEDURE)](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Database/%EC%A0%80%EC%9E%A5%20%ED%94%84%EB%A1%9C%EC%8B%9C%EC%A0%80(Stored%20PROCEDURE).md)
     5. [[AWS] Spring Boot 배포 스크립트 생성](https://github.com/gyoogle/tech-interview-for-developer/tree/master/Web/DevOps)
