@@ -46,6 +46,9 @@ IP와 함께 TCP/IP라는 명칭으로도 널리 불린다. 연결 지향 프로
 - 모든 호스트는 송신을 위한 윈도와 수신을 위한 윈도를 가지고 있다.
 - 호스트들은 실제 데이터를 보내기 전에 3 Way Handshaking을 통해 송신 윈도 크기와 수신 윈도 크기를 맞춘다.
 
+##### 송신측
+<img width="615" alt="스크린샷 2022-08-09 오후 3 32 07" src="https://user-images.githubusercontent.com/68188768/183580284-2b48e9e4-b728-4b85-a8e0-defe9e19b27f.png">
+
 <br>
 
 ### 2. 혼잡제어 (Congestion Control)
@@ -91,6 +94,8 @@ AIMD : Additive Increase / Multiplicative Decrease. 합 증가 / 곱 감소라�
 이때 전송되는 데이터 크기가 임계 값에 도달할 경우 혼잡 회피 단계로 넘어간다.
 
 #### 2.3 혼잡 회피 (Congestion Avoidance)
+
+<img width="365" alt="스크린샷 2022-08-09 오후 3 44 27" src="https://user-images.githubusercontent.com/68188768/183582288-25529856-ee32-4596-994c-490f858f773a.png">
 
 ~~~
 느린 출발의 지수적 증가가 임계치에 도달하게 되면 혼잡으로 간주하고, 회피를 위해 주고받는 윈도 크기가 선형적으로 증가하여 혼잡을 예방한다.
