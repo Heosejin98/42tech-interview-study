@@ -10,9 +10,10 @@
 
 <br>
 
+
 ### 개발 프로세스 비교
 
-<img width="670" alt="스크린샷 2022-08-16 오후 1 09 39" src="https://user-images.githubusercontent.com/68188768/184796071-c629c5a6-844b-447f-a085-6046e6f21473.png">
+<img width="650" alt="스크린샷 2022-08-16 오후 3 10 09" src="https://user-images.githubusercontent.com/68188768/184809763-bf95c842-b29b-4054-b4e9-3e8a59be1f19.png">
 
 첫번째 그림과 같이 일반적인 개발 프로세스는 설계, 개발 코드 작성, 테스트 코드 작성이었다면 TDD는 두번째 그림과 같이 설계, 테스트 코드작성, 개발 코드작성 순으로 됩니다. 
 
@@ -22,7 +23,7 @@
 
 ### TDD 사이클
 
-<img width="457" alt="스크린샷 2022-08-16 오후 1 11 33" src="https://user-images.githubusercontent.com/68188768/184796223-bf446146-6028-429a-a723-702be7c7d17f.png">
+<img width="650" alt="스크린샷 2022-08-16 오후 1 11 33" src="https://user-images.githubusercontent.com/68188768/184796223-bf446146-6028-429a-a723-702be7c7d17f.png">
 
 - 실패하는 테스트 구현
 - 테스트가 성공하도록 프로덕션 코드를 구현
@@ -46,5 +47,6 @@
 
 참고
 
-- https://www.youtube.com/watch?v=UttzAcbuk5k
-- https://github.com/goldbergyoni/javascript-testing-best-practices
+- [이재규 - 당신들의 TDD가 실패하는 이유](https://www.youtube.com/watch?v=UttzAcbuk5k)
+- [javascript-testing-best-practices
+](https://github.com/goldbergyoni/javascript-testing-best-practices)
