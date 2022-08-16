@@ -63,7 +63,7 @@
     5. [TDD(Test Driven Development) - yeblee](https://github.com/yeblee/42tech-interview-study/tree/master/ch06/yeblee)
     6. [레디스(Redis)](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Database/Redis.md)
 - **OS  7회 (7개)**
-    1. [프로세스 vs 스레드](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Operating%20System/Process%20vs%20Thread.md)
+    1. [프로세스 vs 스레드 - yeblee](https://github.com/yeblee/42tech-interview-study/tree/master/ch07/yeblee)
     2. [운영체제란](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Operating%20System/Operation%20System.md)
     3. [프로세스 주소 공간](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Operating%20System/Process%20Address%20Space.md)
     4. [인터럽트(Interrupt)](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Operating%20System/Interrupt.md)
