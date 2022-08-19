@@ -77,22 +77,22 @@
     4. [Race Condition](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Operating%20System/Race%20Condition.md)
     5. [세마포어(Semaphore) & 뮤텍스(Mutex)](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Operating%20System/Semaphore%20%26%20Mutex.md)
     6. [페이징 & 세그먼테이션](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Operating%20System/Paging%20and%20Segmentation.md) ([PDF](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Operating%20System/Paging%20and%20Segmentation.pdf))
-    7. [페이지 교체 알고리즘](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Operating%20System/Page%20Replacement%20Algorithm.md)
-    8. [파일 시스템](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Operating%20System/File%20System.md)
+ 
 - **Design Pattern 9회**
-    1. [디자인패턴 개요(Overview)](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Design%20Pattern/%5BDesign%20Pattern%5D%20Overview.md)
-    2. [어댑터 패턴](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Design%20Pattern/Adapter%20Pattern.md)
-    3. [싱글톤 패턴](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Design%20Pattern/Singleton%20Pattern.md)
-    4. [탬플릿 메소드 패턴](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Design%20Pattern/Design%20Pattern_Template%20Method.md)
-    5. [팩토리 메소드 패턴](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Design%20Pattern/Design%20Pattern_Factory%20Method.md)
-    6. [클린코드 & 리팩토링](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Software%20Engineering/Clean%20Code%20%26%20Refactoring.md) / [클린코드 & 시큐어코딩](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Software%20Engineering/%ED%81%B4%EB%A6%B0%EC%BD%94%EB%93%9C(Clean%20Code)%20%26%20%EC%8B%9C%ED%81%90%EC%96%B4%EC%BD%94%EB%94%A9(Secure%20Coding).md)
+    1. [페이지 교체 알고리즘](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Operating%20System/Page%20Replacement%20Algorithm.md)
+    2. [파일 시스템](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Operating%20System/File%20System.md)
+    3. [디자인패턴 개요(Overview)](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Design%20Pattern/%5BDesign%20Pattern%5D%20Overview.md)
+    4. [어댑터 패턴](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Design%20Pattern/Adapter%20Pattern.md)
+    5. [싱글톤 패턴](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Design%20Pattern/Singleton%20Pattern.md)
+    6. [탬플릿 메소드 패턴](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Design%20Pattern/Design%20Pattern_Template%20Method.md)
+
 - **Design Pattern & Software Engineering 10회**
-    1. [옵저버 패턴](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Design%20Pattern/Observer%20pattern.md)
-    2. [스트레티지 패턴](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Design%20Pattern/Strategy%20Pattern.md)
-    3. [컴포지트 패턴](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Design%20Pattern/Composite%20Pattern.md)
-    4. [SOLID](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Design%20Pattern/SOLID.md)
-    5. [마이크로서비스 아키텍처(MSA)](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Software%20Engineering/%EB%A7%88%EC%9D%B4%ED%81%AC%EB%A1%9C%EC%84%9C%EB%B9%84%EC%8A%A4%20%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98(MSA).md)
-    6. ****DDD(Domain Driven Design) << github에 없는 내용****
+    1. [팩토리 메소드 패턴](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Design%20Pattern/Design%20Pattern_Factory%20Method.md)
+    2. [클린코드 & 리팩토링](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Software%20Engineering/Clean%20Code%20%26%20Refactoring.md) / [클린코드 & 시큐어코딩](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Software%20Engineering/%ED%81%B4%EB%A6%B0%EC%BD%94%EB%93%9C(Clean%20Code)%20%26%20%EC%8B%9C%ED%81%90%EC%96%B4%EC%BD%94%EB%94%A9(Secure%20Coding).md)
+    3. [옵저버 패턴](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Design%20Pattern/Observer%20pattern.md)
+    4. [스트레티지 패턴](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Design%20Pattern/Strategy%20Pattern.md)
+    5. [컴포지트 패턴](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Design%20Pattern/Composite%20Pattern.md)
+    6. [마이크로서비스 아키텍처(MSA)](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Software%20Engineering/%EB%A7%88%EC%9D%B4%ED%81%AC%EB%A1%9C%EC%84%9C%EB%B9%84%EC%8A%A4%20%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98(MSA).md)
 - **Web 11회**
     1. [브라우저 동작 방법](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Web/%EB%B8%8C%EB%9D%BC%EC%9A%B0%EC%A0%80%20%EB%8F%99%EC%9E%91%20%EB%B0%A9%EB%B2%95.md)
     2. [쿠키(Cookie) & 세션(Session)](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Web/Cookie%20%26%20Session.md)
