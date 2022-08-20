@@ -62,11 +62,11 @@
     4. [Blocking & Non-Blocking I/O](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Network/%5BNetwork%5D%20Blocking%20Non-Blocking%20IO.md)
     5. [TDD(Test Driven Development) - yeblee](https://github.com/yeblee/42tech-interview-study/tree/master/ch06/yeblee)
     6. [레디스(Redis)](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Database/Redis.md)
-- **OS  7회 (7개)**
+- **OS  7회**
     1. [프로세스 vs 스레드 - yeblee](https://github.com/yeblee/42tech-interview-study/tree/master/ch07/yeblee)
     2. [운영체제란](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Operating%20System/Operation%20System.md)
     3. [프로세스 주소 공간](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Operating%20System/Process%20Address%20Space.md)
-    4. [인터럽트(Interrupt)](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Operating%20System/Interrupt.md)
+    4. [인터럽트(Interrupt)](https://velog.io/@sejin3319/OS-%EC%9D%B8%ED%84%B0%EB%9F%BD%ED%8A%B8Interrupt)
     5. [시스템 콜(System Call)](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Operating%20System/%5BOS%5D%20System%20Call%20(Fork%20Wait%20Exec).md)
     6. [PCB와 Context Switching](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Operating%20System/PCB%20%26%20Context%20Switcing.md)
     7. [메모리(Memory)](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Operating%20System/Memory.md)
