@@ -66,18 +66,17 @@
     1. [프로세스 vs 스레드 - yeblee](https://github.com/yeblee/42tech-interview-study/tree/master/ch07/yeblee)
     2. [운영체제란](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Operating%20System/Operation%20System.md)
     3. [프로세스 주소 공간](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Operating%20System/Process%20Address%20Space.md)
-    4. [인터럽트(Interrupt)](https://velog.io/@sejin3319/OS-%EC%9D%B8%ED%84%B0%EB%9F%BD%ED%8A%B8Interrupt)
+    4. [인터럽트(Interrupt) - seheo](https://velog.io/@sejin3319/OS-%EC%9D%B8%ED%84%B0%EB%9F%BD%ED%8A%B8Interrupt)
     5. [시스템 콜(System Call)](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Operating%20System/%5BOS%5D%20System%20Call%20(Fork%20Wait%20Exec).md)
     6. [PCB와 Context Switching](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Operating%20System/PCB%20%26%20Context%20Switcing.md)
     7. [메모리(Memory)](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Operating%20System/Memory.md)
-- **OS  8회  (8개)**
+- **OS  8회**
     1. [IPC(Inter Process Communication)](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Operating%20System/IPC(Inter%20Process%20Communication).md)
     2. [CPU 스케줄링](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Operating%20System/CPU%20Scheduling.md)
     3. [데드락(DeadLock)](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Operating%20System/DeadLock.md)
     4. [Race Condition](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Operating%20System/Race%20Condition.md)
     5. [세마포어(Semaphore) & 뮤텍스(Mutex)](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Operating%20System/Semaphore%20%26%20Mutex.md)
-    6. [페이징 & 세그먼테이션](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Operating%20System/Paging%20and%20Segmentation.md) ([PDF](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Operating%20System/Paging%20and%20Segmentation.pdf))
- 
+    6. [페이징 & 세그먼테이션 - seheo](https://velog.io/@sejin3319/OS-%ED%8E%98%EC%9D%B4%EC%A7%95-%EC%84%B8%EA%B7%B8%EB%A8%BC%ED%85%8C%EC%9D%B4%EC%85%98)
 - **Design Pattern 9회**
     1. [페이지 교체 알고리즘](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Operating%20System/Page%20Replacement%20Algorithm.md)
     2. [파일 시스템](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Operating%20System/File%20System.md)
