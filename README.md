@@ -25,23 +25,23 @@
     3. [중앙처리장치(CPU) 작동 원리 - seheo](https://velog.io/@sejin3319/%EC%A4%91%EC%95%99%EC%B2%98%EB%A6%AC%EC%9E%A5%EC%B9%98CPU-%EC%9E%91%EB%8F%99-%EC%9B%90%EB%A6%AC)
     4. [캐시 메모리 - yeblee](https://github.com/yeblee/42tech-interview-study/tree/master/ch01/yeblee)
     5. [고정 소수점 & 부동 소수점 - mingkim](https://github.com/Heosejin98/42tech-interview-study/tree/master/ch01/mingkim)
-    6. [패리티 비트 & 해밍 코드 - bolee](https://github.com/Heosejin98/42tech-interview-study/tree/master/ch01/boleed)
+    6. [패리티 비트 - bolee](https://velog.io/@octo__/%ED%8C%A8%EB%A6%AC%ED%8B%B0-%EB%B9%84%ED%8A%B8-Parity-Bit) & [해밍 코드 - bolee](https://velog.io/@octo__/%ED%95%B4%EB%B0%8D-%EC%BD%94%EB%93%9C-Hamming-Code)
 - **Computer Architecture &  Software Engineering 2회**
     1. [ARM 프로세서](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Computer%20Architecture/ARM%20%ED%94%84%EB%A1%9C%EC%84%B8%EC%84%9C.md)
     2. [객체 지향 프로그래밍(Object-Oriented Programming) - seheo](https://github.com/Heosejin98/42tech-interview-study/tree/master/ch02/seheo)
     3. [함수형 프로그래밍(Fuctional Programming](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Software%20Engineering/Fuctional%20Programming.md))
     4. [데브옵스(DevOps)](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Software%20Engineering/%EB%8D%B0%EB%B8%8C%EC%98%B5%EC%8A%A4(DevOps).md)
     5. [서드 파티(3rd party)란? - yeblee](https://github.com/yeblee/42tech-interview-study/tree/master/ch02/yeblee)
-    6. [애자일(Agile) 정리1](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Software%20Engineering/%EC%95%A0%EC%9E%90%EC%9D%BC(Agile).md) / [애자일(Agile) 정리2](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Software%20Engineering/%EC%95%A0%EC%9E%90%EC%9D%BC(Agile)2.md)
+    6. [애자일(Agile) - bolee](https://velog.io/@octo__/%EC%95%A0%EC%9E%90%EC%9D%BC-Agile) / [스크럼(Scrum) - bolee](https://velog.io/@octo__/%EC%8A%A4%ED%81%AC%EB%9F%BC-Scrum)
 - **Database 3회**
     1. [SQL Injection - yeblee](https://github.com/yeblee/42tech-interview-study/tree/master/ch03/yeblee)
-    2. [SQL vs NoSQL](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Database/SQL%EA%B3%BC%20NOSQL%EC%9D%98%20%EC%B0%A8%EC%9D%B4.md)
+    2. [SQL vs NoSQL - bolee](https://velog.io/@octo__/SQL-vs-NoSQL#sql%EA%B3%BC-nosql-%EC%A4%91%EC%97%90%EC%84%9C-%EC%96%B4%EB%96%A4-%EA%B2%83%EC%9D%84-%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94-%EA%B2%83%EC%9D%B4-%EC%A2%8B%EC%9D%84%EA%B9%8C)
     3. [정규화(Nomalization와 반정규화(De-Nomalization)) - seheo](https://velog.io/@sejin3319/DATABASE-%EC%A0%95%EA%B7%9C%ED%99%94Normalization)
     4. [이상(Anomaly)](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Database/%5BDB%5D%20Anomaly.md)
     5. [인덱스(INDEX)](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Database/%5BDB%5D%20Index.md)
     6. [키(Key) 정리](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Database/%5BDB%5D%20Key.md)
 - **Database & Devops 4회**
-    1. [SQL - JOIN](https://velog.io/@octo__/%EA%B4%80%EA%B3%84%ED%98%95-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4%EC%9D%98-%ED%95%84%EC%9A%94%EC%84%B1)
+    1. [SQL - JOIN - bolee](https://velog.io/@octo__/%EA%B4%80%EA%B3%84%ED%98%95-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4%EC%9D%98-%ED%95%84%EC%9A%94%EC%84%B1)
     2. [트랜잭션(Transaction) - seheo](https://velog.io/@sejin3319/DATABASE-%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98-transaction)
 
     3. [트랜잭션 격리 수준(Transaction Isolation Level)](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Database/Transaction%20Isolation%20Level.md)
@@ -53,31 +53,30 @@
     2. [TCP 3 way handshake & 4 way handshake](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Network/TCP%203%20way%20handshake%20%26%204%20way%20handshake.md)
     3. [TCP/IP 흐름제어 & 혼잡제어 - yeblee](https://github.com/yeblee/42tech-interview-study/tree/master/ch05/yeblee)
     4. [UDP](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Network/UDP.md#20190826%EC%9B%94-bym-udp%EB%9E%80)
-    5. [대칭키 & 공개키](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Network/%EB%8C%80%EC%B9%AD%ED%82%A4%20%26%20%EA%B3%B5%EA%B0%9C%ED%82%A4.md)
+    5. [대칭키 & 공개키 - bolee](https://velog.io/@octo__/%EB%8C%80%EC%B9%AD%ED%82%A4%EC%99%80-%EA%B3%B5%EA%B0%9C%ED%82%A4%EB%B9%84%EB%8C%80%EC%B9%AD%ED%82%A4)
     6. [HTTP & HTTPS](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Network/HTTP%20%26%20HTTPS.md)
 - **Network & Database 6회**
     1. [TLS/SSL handshake - seheo](https://velog.io/@sejin3319/http-TLSSSL-handshake)
     2. [로드 밸런싱(Load Balancing)](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Network/%EB%A1%9C%EB%93%9C%20%EB%B0%B8%EB%9F%B0%EC%8B%B1(Load%20Balancing).md)
     3. [Blocking,Non-blocking & Synchronous,Asynchronous](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Network/%5BNetwork%5D%20Blocking%2CNon-blocking%20%26%20Synchronous%2CAsynchronous.md)
-    4. [Blocking & Non-Blocking I/O](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Network/%5BNetwork%5D%20Blocking%20Non-Blocking%20IO.md)
+    4. [Blocking & Non-Blocking I/O - bolee](https://velog.io/@octo__/BlockingNon-Blocking-IO-IO-%EC%9D%B4%EB%B2%A4%ED%8A%B8-%ED%86%B5%EC%A7%80-%EB%AA%A8%EB%8D%B8)
     5. [TDD(Test Driven Development) - yeblee](https://github.com/yeblee/42tech-interview-study/tree/master/ch06/yeblee)
     6. [레디스(Redis)](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Database/Redis.md)
 - **OS  7회**
     1. [프로세스 vs 스레드 - yeblee](https://github.com/yeblee/42tech-interview-study/tree/master/ch07/yeblee)
     2. [운영체제란](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Operating%20System/Operation%20System.md)
     3. [프로세스 주소 공간](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Operating%20System/Process%20Address%20Space.md)
-    4. [인터럽트(Interrupt)](https://velog.io/@sejin3319/OS-%EC%9D%B8%ED%84%B0%EB%9F%BD%ED%8A%B8Interrupt)
-    5. [시스템 콜(System Call)](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Operating%20System/%5BOS%5D%20System%20Call%20(Fork%20Wait%20Exec).md)
+    4. [인터럽트(Interrupt) - seheo](https://velog.io/@sejin3319/OS-%EC%9D%B8%ED%84%B0%EB%9F%BD%ED%8A%B8Interrupt)
+    5. [시스템 콜(System Call) - bolee](https://velog.io/@octo__/System-call%EC%8B%9C%EC%8A%A4%ED%85%9C-%EC%BD%9C%ED%98%B8%EC%B6%9C)
     6. [PCB와 Context Switching](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Operating%20System/PCB%20%26%20Context%20Switcing.md)
     7. [메모리(Memory)](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Operating%20System/Memory.md)
-- **OS  8회  (8개)**
+- **OS  8회**
     1. [IPC(Inter Process Communication)](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Operating%20System/IPC(Inter%20Process%20Communication).md)
     2. [CPU 스케줄링](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Operating%20System/CPU%20Scheduling.md)
     3. [데드락(DeadLock)](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Operating%20System/DeadLock.md)
     4. [Race Condition](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Operating%20System/Race%20Condition.md)
-    5. [세마포어(Semaphore) & 뮤텍스(Mutex)](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Operating%20System/Semaphore%20%26%20Mutex.md)
-    6. [페이징 & 세그먼테이션](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Operating%20System/Paging%20and%20Segmentation.md) ([PDF](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Operating%20System/Paging%20and%20Segmentation.pdf))
- 
+    5. [세마포어(Semaphore)](https://velog.io/@octo__/%EC%84%B8%EB%A7%88%ED%8F%AC%EC%96%B4Semaphore) & [뮤텍스(Mutex)](https://velog.io/@octo__/%EB%AE%A4%ED%85%8D%EC%8A%A4Mutex) & [차이점](https://velog.io/@octo__/%EC%84%B8%EB%A7%88%ED%8F%AC%EC%96%B4Semaphore-vs-%EB%AE%A4%ED%85%8D%EC%8A%A4Mutex) - bolee
+    6. [페이징 & 세그먼테이션 - seheo](https://velog.io/@sejin3319/OS-%ED%8E%98%EC%9D%B4%EC%A7%95-%EC%84%B8%EA%B7%B8%EB%A8%BC%ED%85%8C%EC%9D%B4%EC%85%98)
 - **Design Pattern 9회**
     1. [페이지 교체 알고리즘](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Operating%20System/Page%20Replacement%20Algorithm.md)
     2. [파일 시스템](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Operating%20System/File%20System.md)
