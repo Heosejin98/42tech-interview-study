@@ -73,7 +73,7 @@
 - **OS  8회**
     1. [IPC(Inter Process Communication)](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Operating%20System/IPC(Inter%20Process%20Communication).md)
     2. [CPU 스케줄링](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Operating%20System/CPU%20Scheduling.md)
-    3. [데드락(DeadLock)](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Operating%20System/DeadLock.md)
+    3. [데드락(DeadLock) - yeblee](https://github.com/yeblee/42tech-interview-study/tree/master/ch08/yeblee)
     4. [Race Condition](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Operating%20System/Race%20Condition.md)
     5. [세마포어(Semaphore)](https://velog.io/@octo__/%EC%84%B8%EB%A7%88%ED%8F%AC%EC%96%B4Semaphore) & [뮤텍스(Mutex)](https://velog.io/@octo__/%EB%AE%A4%ED%85%8D%EC%8A%A4Mutex) & [차이점](https://velog.io/@octo__/%EC%84%B8%EB%A7%88%ED%8F%AC%EC%96%B4Semaphore-vs-%EB%AE%A4%ED%85%8D%EC%8A%A4Mutex) - bolee
     6. [페이징 & 세그먼테이션 - seheo](https://velog.io/@sejin3319/OS-%ED%8E%98%EC%9D%B4%EC%A7%95-%EC%84%B8%EA%B7%B8%EB%A8%BC%ED%85%8C%EC%9D%B4%EC%85%98)
