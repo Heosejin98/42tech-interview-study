@@ -81,7 +81,7 @@
     1. [페이지 교체 알고리즘](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Operating%20System/Page%20Replacement%20Algorithm.md)
     2. [파일 시스템](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Operating%20System/File%20System.md)
     3. [디자인패턴 개요(Overview) - seheo](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Design%20Pattern/%5BDesign%20Pattern%5D%20Overview.md)
-    4. [어댑터 패턴](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Design%20Pattern/Adapter%20Pattern.md)
+    4. [어댑터 패턴 - bolee](https://velog.io/@octo__/%EC%96%B4%EB%8C%91%ED%84%B0-%ED%8C%A8%ED%84%B4Adapter-Pattern)
     5. [싱글톤 패턴](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Design%20Pattern/Singleton%20Pattern.md)
     6. [탬플릿 메소드 패턴](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Design%20Pattern/Design%20Pattern_Template%20Method.md)
 
