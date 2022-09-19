@@ -86,7 +86,7 @@
     6. [탬플릿 메소드 패턴 - yeblee](https://github.com/yeblee/42tech-interview-study/tree/master/ch09/yeblee)
 
 - **Design Pattern & Software Engineering 10회**
-    1. [팩토리 메소드 패턴 - seheo](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Design%20Pattern/Design%20Pattern_Factory%20Method.md)
+    1. [팩토리 메소드 패턴 - seheo](https://velog.io/@sejin3319/%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B4-%ED%8C%A9%ED%86%A0%EB%A6%AC-%EB%A9%94%EC%84%9C%EB%93%9C-%ED%8C%A8%ED%84%B4)
     2. [클린코드 & 리팩토링](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Software%20Engineering/Clean%20Code%20%26%20Refactoring.md) / [클린코드 & 시큐어코딩](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Software%20Engineering/%ED%81%B4%EB%A6%B0%EC%BD%94%EB%93%9C(Clean%20Code)%20%26%20%EC%8B%9C%ED%81%90%EC%96%B4%EC%BD%94%EB%94%A9(Secure%20Coding).md)
     3. [옵저버 패턴- bolee](https://velog.io/@octo__/%EC%98%B5%EC%A0%80%EB%B2%84-%ED%8C%A8%ED%84%B4Observer-Pattern)
     4. [스트레티지 패턴](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Design%20Pattern/Strategy%20Pattern.md)
