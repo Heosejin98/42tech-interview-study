@@ -93,7 +93,7 @@
     5. [컴포지트 패턴 - bolee](https://velog.io/@octo__/%EC%BB%B4%ED%8F%AC%EC%A7%80%ED%8A%B8-%ED%8C%A8%ED%84%B4Composite-Pattern)
     6. [마이크로서비스 아키텍처(MSA)](https://velog.io/@sejin3319/Micro-Service-Architecture)
 - **Web 11회**
-    1. [브라우저 동작 방법](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Web/%EB%B8%8C%EB%9D%BC%EC%9A%B0%EC%A0%80%20%EB%8F%99%EC%9E%91%20%EB%B0%A9%EB%B2%95.md)
+    1. [브라우저 동작 방법 -seheo ](https://velog.io/@sejin3319/%EC%9B%B9-%EB%B8%8C%EB%9D%BC%EC%9A%B0%EC%A0%80-%EB%8F%99%EC%9E%91-%EB%B0%A9%EB%B2%95)
     2. [쿠키(Cookie) & 세션(Session) - bolee](https://velog.io/@octo__/%EC%BF%A0%ED%82%A4Cookie-%EC%84%B8%EC%85%98Session)
     3. [HTTP Status Code](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Web/HTTP%20status%20code.md)
     4. [REST API](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Web/%5BWeb%5D%20REST%20API.md)
