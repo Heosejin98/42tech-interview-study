@@ -98,7 +98,7 @@
     3. [HTTP Status Code](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Web/HTTP%20status%20code.md)
     4. [REST API](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Web/%5BWeb%5D%20REST%20API.md)
     5. [웹 서버와 WAS의 차이점](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Web/Web%20Server%EC%99%80%20WAS%EC%9D%98%20%EC%B0%A8%EC%9D%B4.md)
-    6. [OAuth](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Web/OAuth.md)
+    6. [OAuth - bolee](https://velog.io/@octo__/OAuthOpen-Authorization)
 - **Web 12회**
     1. [JWT(JSON Web Token)](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Web/JWT(JSON%20Web%20Token).md)
     2. [Authentication and Authorization](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Web/%EC%9D%B8%EC%A6%9D%EB%B0%A9%EC%8B%9D.md)
